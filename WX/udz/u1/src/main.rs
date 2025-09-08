@@ -2,11 +2,11 @@
 Main entry point for the Rust application.
 */
 
-mod tz;
+mod s1;
 mod utils;
 
-use tz::t1::t1_main;
+use s1::s1::s1_main as s1m;
 
 fn main() {
-    t1_main();
+    s1m()
 }
