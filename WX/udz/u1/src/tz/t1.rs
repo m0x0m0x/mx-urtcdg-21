@@ -14,5 +14,5 @@ pub fn t1_main() {
 // --- Sub Functions---
 
 fn greet() {
-    pswg("Section1 - Work1".to_string())
+    pswg("tz-t1.rs-Testing 1".to_string())
 }
