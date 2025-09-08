@@ -8,9 +8,11 @@ use crate::utils::{header, pswg};
 // --- Main Function ---
 
 pub fn s1_main() {
-    pswg("Section1 - Work1".to_string())
+    greet();
 }
 
 // --- Sub Functions---
 
-fn greet() {}
+fn greet() {
+    pswg("Section1 - Work1".to_string())
+}
