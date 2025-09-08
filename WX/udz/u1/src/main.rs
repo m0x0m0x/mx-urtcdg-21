@@ -4,4 +4,9 @@ Main entry point for the Rust application.
 
 mod utils;
 
-fn main() {}
+use utils::{header, pswg};
+
+fn main() {
+    pswg("booty".to_string());
+    header("booty");
+}
