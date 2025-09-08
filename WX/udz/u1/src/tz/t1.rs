@@ -1,5 +1,5 @@
 /*
-Section work will be here , wills start with w1.rs and so on also they called from mod.rs
+Testiing work and fles in here
 */
 
 // --- Imports ---
@@ -7,7 +7,7 @@ use crate::utils::{header, pswg};
 
 // --- Main Function ---
 
-pub fn s1_main() {
+pub fn t1_main() {
     greet();
 }
 
