@@ -1,7 +1,11 @@
-// --- Main Entry Point ---
+/*
+Main entry point for the Rust application.
+*/
 
-use yansi::Paint;
+mod sec3;
+mod utils;
+use sec3::bank1::bank1_main;
 
 fn main() {
-    println!("{}, {}", "Panty".red(), "Smell".green());
+    bank1_main();
 }
