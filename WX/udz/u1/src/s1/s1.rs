@@ -14,12 +14,10 @@ pub fn s1_main() {
     greet();
 }
 
-
 // --- Sub Functions---
 
 // Greet function
 
 fn greet() {
-
-    pswg("Section 1 0 cards  ".to_string())
+    pswg("Section 1 - cards  ".to_string())
 }
