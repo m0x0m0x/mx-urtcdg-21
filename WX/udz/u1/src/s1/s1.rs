@@ -21,5 +21,5 @@ pub fn s1_main() {
 
 fn greet() {
 
-    pswg("Section".to_string())
+    pswg("Section 1 ".to_string())
 }
