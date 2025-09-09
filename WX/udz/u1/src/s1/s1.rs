@@ -48,12 +48,12 @@ fn func1() {
     // Doublet nested for loops
     for s in suits {
         for v in values {
-            let card = format!("{}{}", v.green(), s.blue());
+            let card = format!("{}{}", v, s);
             cards.push(card);
         }
     }
 
     let deck = Deck { cards };
 
-    println!("Deck = {:#?}", deck.green())
+    println!("Deck = {:?}", deck.green())
 }
