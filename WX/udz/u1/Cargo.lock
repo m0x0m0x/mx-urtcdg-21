@@ -270,6 +270,7 @@ name = "u1"
 version = "0.1.0"
 dependencies = [
  "cfonts",
+ "rand",
  "yansi",
 ]
 

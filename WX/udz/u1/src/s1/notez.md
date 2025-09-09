@@ -1,5 +1,6 @@
 1. [notez](#notez)
 2. [General Notes](#general-notes)
+3. [ImportantSites](#importantsites)
 
 # notez
 
@@ -12,3 +13,11 @@
    1. Note that arrays have a slightly more performant
 3. Implicut return - Meaning no need to add the simicolon , since last execute expression
 4.
+
+# ImportantSites
+
+|             site              |    panty    |
+| :---------------------------: | :---------: |
+| [`docs.rs`](https://docs.rs/) | Find Crates |
+
+[`lib.rs`]
