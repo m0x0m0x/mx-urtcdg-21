@@ -9,7 +9,7 @@ Section work will be here , wills start with w1.rs and so on also they called fr
 
 // --- Imports ---
 use crate::utils::{header, pswg};
-use rand::prelude::*;
+use rand::rng;
 use yansi::Paint;
 
 // --- Main Function ---
@@ -60,7 +60,7 @@ impl Deck {
 
     // Shuffling Deck method - needs RNG - Random Number Generator
     fn shuffle(&self) {
-        let rng = rng();
+        let rngz = rng();
     }
 }
 
