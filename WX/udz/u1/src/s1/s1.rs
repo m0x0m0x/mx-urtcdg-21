@@ -59,7 +59,9 @@ impl Deck {
     }
 
     // Shuffling Deck method - needs RNG - Random Number Generator
-    fn shuffle(&self) {}
+    fn shuffle(&self) {
+        let rng = rand::ThreadRng();
+    }
 }
 
 fn func1() {
