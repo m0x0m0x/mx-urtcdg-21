@@ -43,6 +43,11 @@ fn func1() {
     let values = ["A", "K", "Q", "J"];
 
     // Doublet nested for loops
+    for s in suits {
+        for v in values {
+            let card = format!("{}{}", v.green(), s.blue());
+        }
+    }
 
     let deck = Deck { cards: vec![] };
 
