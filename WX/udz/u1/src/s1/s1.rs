@@ -22,3 +22,7 @@ pub fn s1_main() {
 fn greet() {
     pswg("Section 2 - Cards  ".to_string())
 }
+
+struct Deck {
+    cards: Vec<String>,
+}
