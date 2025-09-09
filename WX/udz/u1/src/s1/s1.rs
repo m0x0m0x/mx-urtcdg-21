@@ -1,6 +1,7 @@
 /*
 Section work will be here , wills start with w1.rs and so on also they called from mod.rs
 - Simiulates a decsk of playing cards
+- This will have the code for the deck
 */
 
 #![allow(dead_code)]
