@@ -32,6 +32,7 @@ struct Deck {
 
 // inherent implementation
 impl Deck {
+    // Inherent implementation
     fn new() -> Self {
         // Alternative method of declaring this Vector
         // let deck = Deck { cards: Vec::new() };
