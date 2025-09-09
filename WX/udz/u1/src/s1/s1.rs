@@ -79,5 +79,13 @@ fn func1() {
 
     println!("Deck = {:#?}", deck.green());
 
-    println!("Dealt Cards = {:#?}", deck.deal(2).yellow());
+    let hand = deck.deal(2);
+    println!(
+        "
+    Using deck.del to get cards 
+    ---
+    Dealt Cards = {:#?}
+    ",
+        hand.yellow()
+    );
 }
