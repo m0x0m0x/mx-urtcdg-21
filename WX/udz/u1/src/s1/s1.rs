@@ -29,5 +29,7 @@ struct Deck {
 }
 
 fn func1() {
-    header("Deck Function")
+    header("Deck Function");
+
+    let deck = Deck { cards: vec![] };
 }
