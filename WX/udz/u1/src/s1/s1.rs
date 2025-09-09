@@ -38,10 +38,10 @@ impl Deck {
         // let deck = Deck { cards: Vec::new() };
 
         // List of suits
-        let suits = ["h", "d", "c", "s"];
+        let suits = ["h", "d"];
 
         // List of Values
-        let values = ["A", "K", "Q", "J"];
+        let values = ["A", "K"];
 
         // Empty vector to store the cards
         let mut cards = vec![];

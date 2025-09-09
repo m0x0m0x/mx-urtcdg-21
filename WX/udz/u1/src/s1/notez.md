@@ -10,3 +10,5 @@
 1. `Vectors` - Vectprs are grow and shrink in size as opposed to array
 2. `vec1[]` - Vectors , `[]` - Arrays
    1. Note that arrays have a slightly more performant
+3. Implicut return - Meaning no need to add the simicolon , since last execute expression
+4.
