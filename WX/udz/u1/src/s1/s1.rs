@@ -56,6 +56,8 @@ impl Deck {
 
         Deck { cards }
     }
+
+    fn shuffle(&self) {}
 }
 
 fn func1() {
