@@ -27,7 +27,7 @@ fn greet() {
 
 #[derive(Debug)]
 struct Deck {
-    cards: Vec<String>,
+    cards: Vec,
 }
 
 fn func1() {
@@ -35,6 +35,13 @@ fn func1() {
 
     // Alternative method of declaring this Vector
     // let deck = Deck { cards: Vec::new() };
+
+    // List of suits
+    let suits = vec!["❤️", "♦️", "♣️", "♠️"];
+
+    // List of Values
+
+    // Doublet nested for loops
 
     let deck = Deck { cards: vec![] };
 
