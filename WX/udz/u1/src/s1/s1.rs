@@ -61,6 +61,7 @@ impl Deck {
     // Shuffling Deck method - needs RNG - Random Number Generator
     fn shuffle(&mut self) {
         let mut rng = rng();
+        self.cards.shuffle(&mut rng);
     }
 }
 
