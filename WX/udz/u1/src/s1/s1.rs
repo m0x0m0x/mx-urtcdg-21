@@ -42,7 +42,7 @@ impl Deck {
         let suits = ["hearts", "spades", "clubs", "diamonds"];
 
         // List of Values
-        let values = ["A", "K"];
+        let values = ["A", "K", "10", "J"];
 
         // Empty vector to store the cards
         let mut cards = vec![];
