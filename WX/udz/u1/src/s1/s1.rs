@@ -30,30 +30,35 @@ struct Deck {
     cards: Vec<String>,
 }
 
+// inherent implementation
+impl Deck {
+    fn new() -> Self {
+        // Alternative method of declaring this Vector
+        // let deck = Deck { cards: Vec::new() };
+
+        // List of suits
+        let suits = ["h", "d", "c", "s"];
+
+        // List of Values
+        let values = ["A", "K", "Q", "J"];
+
+        // Empty vector to store the cards
+        let mut cards = vec![];
+
+        // Doublet nested for loops
+        for s in suits {
+            for v in values {
+                let card = format!("{}-oo-{}", v, s);
+                cards.push(card);
+            }
+        }
+
+        let deck = Deck { cards };
+    }
+}
+
 fn func1() {
     header("Deck Function");
-
-    // Alternative method of declaring this Vector
-    // let deck = Deck { cards: Vec::new() };
-
-    // List of suits
-    let suits = ["h", "d", "c", "s"];
-
-    // List of Values
-    let values = ["A", "K", "Q", "J"];
-
-    // Empty vector to store the cards
-    let mut cards = vec![];
-
-    // Doublet nested for loops
-    for s in suits {
-        for v in values {
-            let card = format!("{}-oo-{}", v, s);
-            cards.push(card);
-        }
-    }
-
-    let deck = Deck { cards };
 
     println!("Deck = {:#?}", deck.green())
 }
