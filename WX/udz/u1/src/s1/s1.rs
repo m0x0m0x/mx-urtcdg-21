@@ -31,6 +31,10 @@ struct Deck {
 fn func1() {
     header("Deck Function");
 
+    // Alternative method of declaring this Vector
+    // let deck = Deck { cards: Vec::new() };
+
     let deck = Deck { cards: vec![] };
-    let deck = Deck { cards: Vec::new() };
+
+    println!("Deck = {}", deck)
 }
