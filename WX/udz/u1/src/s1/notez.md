@@ -16,8 +16,8 @@
 
 # ImportantSites
 
-|             site              |    panty    |
-| :---------------------------: | :---------: |
-| [`docs.rs`](https://docs.rs/) | Find Crates |
-
-[`lib.rs`]
+|               site                |                   panty                   |
+| :-------------------------------: | :---------------------------------------: |
+|   [`docs.rs`](https://docs.rs/)   |                Find Crates                |
+|    [`lib.rs`](https://lib.rs/)    | Find Crates - u use this most of the time |
+| [`crates.io`](https://crates.io/) |         Finding Crates, official          |
