@@ -59,15 +59,15 @@ impl Deck {
     }
 
     // Shuffling Deck method - needs RNG - Random Number Generator
-    fn shuffle(&self) {
-        let rngz = rng();
+    fn shuffle(&mut self) {
+        let mut rng = rng();
     }
 }
 
 fn func1() {
     header("Deck Function");
 
-    let deck = Deck::new();
+    let mut deck = Deck::new();
 
     deck.shuffle();
 
