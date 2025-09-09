@@ -9,6 +9,7 @@ Section work will be here , wills start with w1.rs and so on also they called fr
 
 // --- Imports ---
 use crate::utils::{header, pswg};
+use yansi::Paint;
 
 // --- Main Function ---
 pub fn s1_main() {
@@ -24,6 +25,7 @@ fn greet() {
     pswg("Section 2 - Cards  ".to_string())
 }
 
+#[derive(Debug)]
 struct Deck {
     cards: Vec<String>,
 }
@@ -36,5 +38,5 @@ fn func1() {
 
     let deck = Deck { cards: vec![] };
 
-    println!("Deck = {}", deck)
+    println!("Deck = {:#?}", deck.green())
 }
