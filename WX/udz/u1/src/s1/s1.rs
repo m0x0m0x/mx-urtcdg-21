@@ -9,7 +9,7 @@ Section work will be here , wills start with w1.rs and so on also they called fr
 
 // --- Imports ---
 use crate::utils::{header, pswg};
-use rand::rng;
+use rand::{rng, seq::SliceRandom};
 use yansi::Paint;
 
 // --- Main Function ---
@@ -68,6 +68,8 @@ fn func1() {
     header("Deck Function");
 
     let deck = Deck::new();
+
+    deck.shuffle();
 
     println!("Deck = {:#?}", deck.green())
 }
