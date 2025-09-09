@@ -37,7 +37,7 @@ fn func1() {
     // let deck = Deck { cards: Vec::new() };
 
     // List of suits
-    let suits = ["❤️", "♦️", "♣️", "♠️"];
+    let suits = ["h", "d", "c", "s"];
 
     // List of Values
     let values = ["A", "K", "Q", "J"];
@@ -55,5 +55,5 @@ fn func1() {
 
     let deck = Deck { cards };
 
-    println!("Deck = {:?}", deck.green())
+    println!("Deck = {:#?}", deck.green())
 }
