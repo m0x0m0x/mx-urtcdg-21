@@ -27,7 +27,7 @@ fn greet() {
 
 #[derive(Debug)]
 struct Deck {
-    cards: Vec,
+    cards: Vec<String>,
 }
 
 fn func1() {
@@ -40,6 +40,7 @@ fn func1() {
     let suits = vec!["❤️", "♦️", "♣️", "♠️"];
 
     // List of Values
+    let values = vec!["A", "K", "Q", "J"];
 
     // Doublet nested for loops
 
