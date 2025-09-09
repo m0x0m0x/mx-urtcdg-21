@@ -32,4 +32,5 @@ fn func1() {
     header("Deck Function");
 
     let deck = Deck { cards: vec![] };
+    let deck = Deck { cards: Vec::new() };
 }
