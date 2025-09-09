@@ -48,7 +48,7 @@ fn func1() {
     // Doublet nested for loops
     for s in suits {
         for v in values {
-            let card = format!("{}{}", v, s);
+            let card = format!("{}-oo-{}", v, s);
             cards.push(card);
         }
     }
