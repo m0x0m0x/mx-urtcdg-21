@@ -13,6 +13,7 @@ use crate::utils::{header, pswg};
 // --- Main Function ---
 pub fn s1_main() {
     greet();
+    func1();
 }
 
 // --- Sub Functions---
@@ -25,4 +26,8 @@ fn greet() {
 
 struct Deck {
     cards: Vec<String>,
+}
+
+fn func1() {
+    header("Deck Function")
 }
