@@ -39,7 +39,7 @@ impl Deck {
         // let deck = Deck { cards: Vec::new() };
 
         // List of suits
-        let suits = ["h", "d"];
+        let suits = ["hearts", "spades", "clubs", "diamonds"];
 
         // List of Values
         let values = ["A", "K"];
@@ -79,7 +79,8 @@ fn func1() {
 
     println!("Deck = {:#?}", deck.green());
 
-    let hand = deck.deal(20);
+    // Reqiires error handling
+    let hand = deck.deal(2);
     println!(
         "
     ---
