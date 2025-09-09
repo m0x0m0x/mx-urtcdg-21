@@ -19,5 +19,5 @@ pub fn s1_main() {
 // Greet function
 
 fn greet() {
-    pswg("Section 1 - cards  ".to_string())
+    pswg("Section 2 - Cards  ".to_string())
 }
