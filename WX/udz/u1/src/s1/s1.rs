@@ -54,11 +54,14 @@ impl Deck {
         }
 
         let deck = Deck { cards };
+        return deck;
     }
 }
 
 fn func1() {
     header("Deck Function");
+
+    let deck = Deck::new();
 
     println!("Deck = {:#?}", deck.green())
 }
