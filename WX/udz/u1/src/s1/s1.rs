@@ -53,7 +53,7 @@ fn func1() {
         }
     }
 
-    let deck = Deck { cards: vec![] };
+    let deck = Deck { cards };
 
     println!("Deck = {:#?}", deck.green())
 }
