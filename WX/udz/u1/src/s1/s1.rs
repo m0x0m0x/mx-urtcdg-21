@@ -1,5 +1,6 @@
 /*
 Section work will be here , wills start with w1.rs and so on also they called from mod.rs
+- Simiulates a decsk of playing cards
 */
 
 #![allow(dead_code)]
@@ -18,5 +19,5 @@ pub fn s1_main() {
 // Greet function
 
 fn greet() {
-    pswg("Section 1 Work".to_string())
+    pswg("Section 1 Work - Deck of cards ".to_string())
 }
