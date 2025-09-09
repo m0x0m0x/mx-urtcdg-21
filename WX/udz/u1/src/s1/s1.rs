@@ -63,6 +63,9 @@ impl Deck {
         let mut rng = rng();
         self.cards.shuffle(&mut rng);
     }
+
+    // Deal method
+    fn deal(&mut self, num_cards: usize) {}
 }
 
 fn func1() {
