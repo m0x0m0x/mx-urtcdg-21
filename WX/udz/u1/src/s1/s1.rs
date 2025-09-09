@@ -57,6 +57,7 @@ impl Deck {
         Deck { cards }
     }
 
+    // Shuffling Deck method - needs RNG - Random Number Generator
     fn shuffle(&self) {}
 }
 
