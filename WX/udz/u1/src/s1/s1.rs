@@ -37,10 +37,10 @@ fn func1() {
     // let deck = Deck { cards: Vec::new() };
 
     // List of suits
-    let suits = vec!["❤️", "♦️", "♣️", "♠️"];
+    let suits = ["❤️", "♦️", "♣️", "♠️"];
 
     // List of Values
-    let values = vec!["A", "K", "Q", "J"];
+    let values = ["A", "K", "Q", "J"];
 
     // Doublet nested for loops
 
