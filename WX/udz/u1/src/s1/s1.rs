@@ -42,10 +42,14 @@ fn func1() {
     // List of Values
     let values = ["A", "K", "Q", "J"];
 
+    // Empty vector to store the cards
+    let mut cards = vec![];
+
     // Doublet nested for loops
     for s in suits {
         for v in values {
             let card = format!("{}{}", v.green(), s.blue());
+            cards.push(card);
         }
     }
 
