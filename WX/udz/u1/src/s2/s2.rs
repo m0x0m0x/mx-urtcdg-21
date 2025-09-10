@@ -35,3 +35,9 @@ struct Account {
     balance: i32,
     holder: String,
 }
+
+// the acccounts element in the struct below as a Vector of Account structs which has been defined above
+#[derive(Debug)]
+struct Bank {
+    accounts: Vec<Account>,
+}
