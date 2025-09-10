@@ -42,3 +42,11 @@ struct Account {
 struct Bank {
     accounts: Vec<Account>,
 }
+
+// Inherent implementation of the bank
+impl Bank {
+    // new acccount information
+    fn new() -> Self {
+        Bank { accounts: vec![] }
+    }
+}
