@@ -22,7 +22,8 @@ pub fn s2_main() {
 // Greet function
 
 fn greet() {
-    pswg("Section 2 - Bank  ".to_string())
+    pswg("Section 2 - Bank  ".to_string());
+    make_bank();
 }
 
 /*
@@ -59,4 +60,13 @@ impl Bank {
     fn new() -> Self {
         Bank { accounts: vec![] }
     }
+}
+
+// Function to make a new bank
+
+fn make_bank() {
+    header("Making a new Bank");
+
+    let bank = Bank::new();
+    println!("{}", bank)
 }
