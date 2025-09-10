@@ -68,5 +68,5 @@ fn make_bank() {
     header("Making a new Bank");
 
     let bank = Bank::new();
-    println!("{}", bank)
+    println!("{:#?}", bank.green())
 }
