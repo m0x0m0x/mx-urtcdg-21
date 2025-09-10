@@ -75,7 +75,7 @@ fn make_bank() {
 
     // Mkaing a new bank
     let bank = Bank::new();
-    // pr_acc(bank);
+    pr_acc(bank);
 
     // making a new account
     let account = Account::new(1, String::from("Alice"));
