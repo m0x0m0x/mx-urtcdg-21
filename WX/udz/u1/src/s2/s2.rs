@@ -75,10 +75,10 @@ fn make_bank() {
 
     // Mkaing a new bank
     let bank = Bank::new();
-    pr_acc(bank);
+    println!("{:#?}", bank.yellow());
 
     // making a new account
     let account = Account::new(1, String::from("Alice"));
     pr_acc(account);
-    pr_acc(account)
+    // pr_acc(account)
 }
