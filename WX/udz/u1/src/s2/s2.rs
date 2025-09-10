@@ -24,3 +24,9 @@ pub fn s2_main() {
 fn greet() {
     pswg("Section 2 - Bank  ".to_string())
 }
+
+/*
+Buiilding the bank struct and accounts
+*/
+
+#[derive(debug())]
