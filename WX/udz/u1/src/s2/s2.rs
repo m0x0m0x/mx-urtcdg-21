@@ -37,6 +37,16 @@ struct Account {
     holder: String,
 }
 
+impl Account {
+    fn new(id: u32, holder: String) -> Self {
+        Account {
+            id,
+            holder,
+            balance: 0,
+        }
+    }
+}
+
 // the acccounts element in the struct below as a Vector of Account structs which has been defined above
 #[derive(Debug)]
 struct Bank {
