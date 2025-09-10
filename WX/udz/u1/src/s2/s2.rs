@@ -27,6 +27,7 @@ fn greet() {
 
 /*
 Buiilding the bank struct and accounts
+Step 1 - is defining the types which are being done below
 */
 
 #[derive(Debug)]
