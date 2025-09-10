@@ -64,12 +64,18 @@ impl Bank {
 
 // Function to make a new bank
 
+//helper fuinction print account
+
+fn print_account(account: Account) {
+    println!("{:#?}", account.yellow())
+}
+
 fn make_bank() {
     header("Making a new Bank");
 
     // Mkaing a new bank
     let bank = Bank::new();
-    println!("{:#?}", bank.green());
+    print_account(bank);
 
     // making a new account
     let account = Account::new(1, String::from("Alice"));
