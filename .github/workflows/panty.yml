@@ -15,7 +15,6 @@ on:
 env:
   CARGO_TERM_COLOR: always
   PROJECT_DIR: 'rel/t1'  # Your specific directory
-  BINARY_NAME: 'SmellPanty'  # Replace with your actual binary name
   RELEASE_TAG_PREFIX: 'v'
 
 # Permission setting for GitHub Token
@@ -35,6 +34,10 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
         with:
           components: rustfmt, clippy
+
+      - name: Update Cargo.lock for tests
+        run: cargo update
+        working-directory: ${{ env.PROJECT_DIR }}
 
       - name: Run tests
         run: cargo test --verbose
@@ -62,6 +65,8 @@ jobs:
         ls -la ${{ env.PROJECT_DIR }}/
         echo "Checking for Cargo.toml:"
         ls -la ${{ env.PROJECT_DIR }}/Cargo.toml || echo "Cargo.toml not found!"
+        echo "Checking for Cargo.lock:"
+        ls -la ${{ env.PROJECT_DIR }}/Cargo.lock || echo "Cargo.lock not found!"
 
     # Step 3: Set up Rust toolchain
     - name: Setup Rust
@@ -70,7 +75,12 @@ jobs:
         toolchain: stable
         targets: x86_64-unknown-linux-musl
 
-    # Step 4: Get version from Cargo.toml or use timestamp
+    # Step 4: Update Cargo.lock before building
+    - name: Update Cargo.lock
+      run: cargo update
+      working-directory: ${{ env.PROJECT_DIR }}
+
+    # Step 5: Get version from Cargo.toml or use timestamp
     - name: Determine release tag
       id: get_tag
       run: |
@@ -84,17 +94,33 @@ jobs:
         fi
         echo "Using tag: $TAG"
 
-    # Step 5: Build release binary
+    # Step 6: Build release binary (without --locked to avoid lock file issues)
     - name: Build release binary
       run: |
         cd ${{ env.PROJECT_DIR }}
-        cargo build --release --target x86_64-unknown-linux-musl --locked
-        # Find the actual binary name if not specified
+        # Build without --locked to avoid Cargo.lock synchronization issues
+        cargo build --release --target x86_64-unknown-linux-musl
+        # Extract binary name from Cargo.toml
         BINARY_NAME=$(grep '^name' Cargo.toml | head -1 | cut -d '"' -f 2)
-        strip target/x86_64-unknown-linux-musl/release/$BINARY_NAME
         echo "BINARY_NAME=$BINARY_NAME" >> $GITHUB_ENV
+        echo "Binary built successfully: $BINARY_NAME"
 
-    # Step 6: Create GitHub Release
+    # Step 7: Strip debug symbols to reduce binary size
+    - name: Strip binary
+      run: |
+        cd ${{ env.PROJECT_DIR }}
+        strip target/x86_64-unknown-linux-musl/release/$BINARY_NAME
+        echo "Binary stripped successfully"
+
+    # Step 8: Verify binary exists
+    - name: Verify binary
+      run: |
+        cd ${{ env.PROJECT_DIR }}
+        ls -la target/x86_64-unknown-linux-musl/release/
+        file target/x86_64-unknown-linux-musl/release/$BINARY_NAME
+        echo "Binary size: $(du -h target/x86_64-unknown-linux-musl/release/$BINARY_NAME | cut -f1)"
+
+    # Step 9: Create GitHub Release
     - name: Create Release
       id: create_release
       uses: softprops/action-gh-release@v1
@@ -112,10 +138,12 @@ jobs:
           - Binary: ${{ env.BINARY_NAME }}
           - Target: x86_64-unknown-linux-musl
           - Timestamp: $(date -u)
+          - Version: ${{ env.VERSION }}
         draft: false
         prerelease: false
+        generate_release_notes: true
 
-    # Step 7: Upload binary asset
+    # Step 10: Upload binary asset
     - name: Upload Release Asset
       uses: actions/upload-release-asset@v1
       env:
@@ -123,10 +151,10 @@ jobs:
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ${{ env.PROJECT_DIR }}/target/x86_64-unknown-linux-musl/release/${{ env.BINARY_NAME }}
-        asset_name: ${{ env.BINARY_NAME }}-linux-x86_64
+        asset_name: ${{ env.BINARY_NAME }}-linux-musl-x86_64
         asset_content_type: application/octet-stream
 
-    # Step 8: Show release information
+    # Step 11: Show release information
     - name: Show release info
       run: |
         echo "✅ Release created successfully!"
@@ -134,3 +162,4 @@ jobs:
         echo "🏷️  Tag: ${{ steps.get_tag.outputs.TAG }}"
         echo "📊 Binary: ${{ env.BINARY_NAME }}"
         echo "🔗 Release URL: ${{ steps.create_release.outputs.html_url }}"
+        echo "📈 Version: ${{ env.VERSION }}"
