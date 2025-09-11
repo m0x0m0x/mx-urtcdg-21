@@ -1,0 +1,112 @@
+name: Build and Release Rust Binary
+
+# Trigger on push events to specific branch and directories
+on:
+  push:
+    branches:
+      - 'w1'  # Replace with your specific branch name
+    paths:
+      - 'rel/**'           # Watch for changes in src directory
+      - 'Cargo.toml'       # Watch for changes in Cargo.toml
+      - 'Cargo.lock'       # Watch for changes in Cargo.lock
+
+# Environment variables
+env:
+  CARGO_TERM_COLOR: always
+  BINARY_NAME: 'your-binary-name'  # Replace with your binary name
+  RELEASE_TAG: 'v1.0.0'           # Customizable tag - can be overridden
+
+# Permission setting for GitHub Token
+permissions:
+  contents: write  # Needed for creating releases :cite[7]
+
+jobs:
+  # Test job runs on all branches
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+
+      - name: Run tests
+        run: cargo test --verbose
+
+  # Build and release job - only runs on specific branch
+  build-and-release:
+    name: Build and Release
+    runs-on: ubuntu-latest
+    needs: test  # Wait for tests to pass first :cite[2]
+    
+    # Only run on specific branch :cite[2]
+    if: github.ref == 'refs/heads/your-main-branch' && success()
+    
+    steps:
+    # Step 1: Checkout code
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Fetch all history for tags
+
+    # Step 2: Set up Rust toolchain
+    - name: Setup Rust
+      uses: dtolnay/rust-toolchain@stable
+      with:
+        targets: x86_64-unknown-linux-musl  # Static linking for Linux
+
+    # Step 3: Get or generate version tag
+    - name: Determine release tag
+      id: get_tag
+      run: |
+        # Use custom tag from input or generate from date
+        if [ -n "${{ inputs.custom_tag }}" ]; then
+          echo "TAG=${{ inputs.custom_tag }}" >> $GITHUB_OUTPUT
+        else
+          echo "TAG=$(date +'v%Y.%m.%d-%H%M')" >> $GITHUB_OUTPUT
+        fi
+        echo "Using tag: $TAG"
+
+    # Step 4: Build release binary
+    - name: Build release binary
+      run: |
+        cargo build --release --target x86_64-unknown-linux-musl --locked
+        strip target/x86_64-unknown-linux-musl/release/$BINARY_NAME
+
+    # Step 5: Create GitHub Release
+    - name: Create Release
+      id: create_release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: ${{ steps.get_tag.outputs.TAG }}
+        name: Release ${{ steps.get_tag.outputs.TAG }}
+        body: |
+          Automated release triggered by push to ${{ github.ref }}
+          
+          Changes in this release:
+          - Built from commit: ${{ github.sha }}
+          - Binary: ${{ env.BINARY_NAME }}
+          - Target: x86_64-unknown-linux-musl
+        draft: false
+        prerelease: false
+        generate_release_notes: true
+
+    # Step 6: Upload binary asset
+    - name: Upload Release Asset
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          target/x86_64-unknown-linux-musl/release/$BINARY_NAME
+        tag_name: ${{ steps.get_tag.outputs.TAG }}
+
+    # Step 7: Output release information
+    - name: Show release info
+      run: |
+        echo "Release created successfully!"
+        echo "Tag: ${{ steps.get_tag.outputs.TAG }}"
+        echo "Release URL: ${{ steps.create_release.outputs.html_url }}"
+        echo "Upload URL: ${{ steps.create_release.outputs.upload_url }}"
