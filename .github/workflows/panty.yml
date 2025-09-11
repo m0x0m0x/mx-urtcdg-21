@@ -1,27 +1,29 @@
-name: Build and Release Rust Binary
+name: Build and Release Rust Binary from rel/t1
 
-# Trigger on push events to specific branch and directories
+# Trigger on push events to branch w1 and specific directory
 on:
   push:
     branches:
-      - 'w1'  # Replace with your specific branch name
+      - 'w1'  # Your specific branch
     paths:
-      - 'rel/t1/src**'           # Watch for changes in src directory
-      - 'Cargo.toml'       # Watch for changes in Cargo.toml
-      - 'Cargo.lock'       # Watch for changes in Cargo.lock
+      - 'rel/t1/**'       # Watch for changes in your specific directory
+      - 'rel/t1/Cargo.toml'
+      - 'rel/t1/Cargo.lock'
+      - 'rel/t1/src/**'
 
 # Environment variables
 env:
   CARGO_TERM_COLOR: always
-  BINARY_NAME: 'SmellPanty'  # Replace with your binary name
-  RELEASE_TAG: 'v1.0.0'           # Customizable tag - can be overridden
+  PROJECT_DIR: 'rel/t1'  # Your specific directory
+  BINARY_NAME: 'SmellPanty'  # Replace with your actual binary name
+  RELEASE_TAG_PREFIX: 'v'
 
 # Permission setting for GitHub Token
 permissions:
-  contents: write  # Needed for creating releases :cite[7]
+  contents: write
 
 jobs:
-  # Test job runs on all branches
+  # Test job - runs tests in the specific directory
   test:
     name: Run Tests
     runs-on: ubuntu-latest
@@ -36,77 +38,99 @@ jobs:
 
       - name: Run tests
         run: cargo test --verbose
+        working-directory: ${{ env.PROJECT_DIR }}
 
-  # Build and release job - only runs on specific branch
+  # Build and release job
   build-and-release:
     name: Build and Release
     runs-on: ubuntu-latest
-    needs: test  # Wait for tests to pass first :cite[2]
-    
-    # Only run on specific branch :cite[2]
-    if: github.ref == 'refs/heads/your-main-branch' && success()
+    needs: test  # Wait for tests to pass first
+    if: github.ref == 'refs/heads/w1' && success()
     
     steps:
     # Step 1: Checkout code
     - name: Checkout code
       uses: actions/checkout@v4
       with:
-        fetch-depth: 0  # Fetch all history for tags
+        fetch-depth: 0
 
-    # Step 2: Set up Rust toolchain
+    # Step 2: Verify directory structure
+    - name: Verify project directory
+      run: |
+        echo "Current directory: $(pwd)"
+        echo "Listing project directory:"
+        ls -la ${{ env.PROJECT_DIR }}/
+        echo "Checking for Cargo.toml:"
+        ls -la ${{ env.PROJECT_DIR }}/Cargo.toml || echo "Cargo.toml not found!"
+
+    # Step 3: Set up Rust toolchain
     - name: Setup Rust
       uses: dtolnay/rust-toolchain@stable
       with:
-        targets: x86_64-unknown-linux-musl  # Static linking for Linux
+        toolchain: stable
+        targets: x86_64-unknown-linux-musl
 
-    # Step 3: Get or generate version tag
+    # Step 4: Get version from Cargo.toml or use timestamp
     - name: Determine release tag
       id: get_tag
       run: |
-        # Use custom tag from input or generate from date
-        if [ -n "${{ inputs.custom_tag }}" ]; then
-          echo "TAG=${{ inputs.custom_tag }}" >> $GITHUB_OUTPUT
+        cd ${{ env.PROJECT_DIR }}
+        if [ -f "Cargo.toml" ]; then
+          VERSION=$(grep '^version' Cargo.toml | head -1 | cut -d '"' -f 2)
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "TAG=${RELEASE_TAG_PREFIX}${VERSION}-$(date +%Y%m%d%H%M)" >> $GITHUB_OUTPUT
         else
-          echo "TAG=$(date +'v%Y.%m.%d-%H%M')" >> $GITHUB_OUTPUT
+          echo "TAG=${RELEASE_TAG_PREFIX}$(date +%Y.%m.%d-%H%M)" >> $GITHUB_OUTPUT
         fi
         echo "Using tag: $TAG"
 
-    # Step 4: Build release binary
+    # Step 5: Build release binary
     - name: Build release binary
       run: |
+        cd ${{ env.PROJECT_DIR }}
         cargo build --release --target x86_64-unknown-linux-musl --locked
+        # Find the actual binary name if not specified
+        BINARY_NAME=$(grep '^name' Cargo.toml | head -1 | cut -d '"' -f 2)
         strip target/x86_64-unknown-linux-musl/release/$BINARY_NAME
+        echo "BINARY_NAME=$BINARY_NAME" >> $GITHUB_ENV
 
-    # Step 5: Create GitHub Release
+    # Step 6: Create GitHub Release
     - name: Create Release
       id: create_release
       uses: softprops/action-gh-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ steps.get_tag.outputs.TAG }}
         name: Release ${{ steps.get_tag.outputs.TAG }}
         body: |
-          Automated release triggered by push to ${{ github.ref }}
+          Automated release from directory: ${{ env.PROJECT_DIR }}
           
-          Changes in this release:
-          - Built from commit: ${{ github.sha }}
+          **Build Details:**
+          - Commit: ${{ github.sha }}
+          - Branch: ${{ github.ref }}
           - Binary: ${{ env.BINARY_NAME }}
           - Target: x86_64-unknown-linux-musl
+          - Timestamp: $(date -u)
         draft: false
         prerelease: false
-        generate_release_notes: true
 
-    # Step 6: Upload binary asset
+    # Step 7: Upload binary asset
     - name: Upload Release Asset
-      uses: softprops/action-gh-release@v1
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        files: |
-          target/x86_64-unknown-linux-musl/release/$BINARY_NAME
-        tag_name: ${{ steps.get_tag.outputs.TAG }}
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ${{ env.PROJECT_DIR }}/target/x86_64-unknown-linux-musl/release/${{ env.BINARY_NAME }}
+        asset_name: ${{ env.BINARY_NAME }}-linux-x86_64
+        asset_content_type: application/octet-stream
 
-    # Step 7: Output release information
+    # Step 8: Show release information
     - name: Show release info
       run: |
-        echo "Release created successfully!"
-        echo "Tag: ${{ steps.get_tag.outputs.TAG }}"
-        echo "Release URL: ${{ steps.create_release.outputs.html_url }}"
-        echo "Upload URL: ${{ steps.create_release.outputs.upload_url }}"
+        echo "✅ Release created successfully!"
+        echo "📦 Project directory: ${{ env.PROJECT_DIR }}"
+        echo "🏷️  Tag: ${{ steps.get_tag.outputs.TAG }}"
+        echo "📊 Binary: ${{ env.BINARY_NAME }}"
+        echo "🔗 Release URL: ${{ steps.create_release.outputs.html_url }}"
