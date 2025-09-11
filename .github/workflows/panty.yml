@@ -6,7 +6,7 @@ on:
     branches:
       - 'w1'  # Replace with your specific branch name
     paths:
-      - 'rel/t1/**'           # Watch for changes in src directory
+      - 'rel/t1/src**'           # Watch for changes in src directory
       - 'Cargo.toml'       # Watch for changes in Cargo.toml
       - 'Cargo.lock'       # Watch for changes in Cargo.lock
 
