@@ -6,14 +6,14 @@ on:
     branches:
       - 'w1'  # Replace with your specific branch name
     paths:
-      - 'rel/**'           # Watch for changes in src directory
+      - 'rel/t1/**'           # Watch for changes in src directory
       - 'Cargo.toml'       # Watch for changes in Cargo.toml
       - 'Cargo.lock'       # Watch for changes in Cargo.lock
 
 # Environment variables
 env:
   CARGO_TERM_COLOR: always
-  BINARY_NAME: 'your-binary-name'  # Replace with your binary name
+  BINARY_NAME: 'SmellPanty'  # Replace with your binary name
   RELEASE_TAG: 'v1.0.0'           # Customizable tag - can be overridden
 
 # Permission setting for GitHub Token
