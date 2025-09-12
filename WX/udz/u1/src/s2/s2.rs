@@ -80,5 +80,5 @@ fn make_bank() {
     // making a new account
     let account = Account::new(1, String::from("Alice"));
     pr_acc(account);
-    // pr_acc(account)
+    pr_acc(account)
 }
