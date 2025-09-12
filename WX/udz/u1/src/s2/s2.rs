@@ -82,4 +82,6 @@ fn make_bank() {
     let mut account = Account::new(1, String::from("Alice"));
     account = pr_acc(account);
     account = pr_acc(account);
+
+    println!("{:#?}", account.blue())
 }
