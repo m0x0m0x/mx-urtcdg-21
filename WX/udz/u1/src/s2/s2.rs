@@ -66,9 +66,8 @@ impl Bank {
 
 //helper fuinction print account
 
-fn pr_acc(account: Account) -> Account {
+fn pr_acc(account: Account) {
     println!("{:#?}", account.yellow());
-    account
 }
 
 fn make_bank() {
@@ -79,9 +78,8 @@ fn make_bank() {
     println!("{:#?}", bank.yellow());
 
     // making a new account
-    let mut account = Account::new(1, String::from("Alice"));
-    account = pr_acc(account);
-    account = pr_acc(account);
+    let account = Account::new(1, String::from("Alice"));
+    pr_acc(account);
 
-    println!("{:#?}", account.blue())
+    println!("{:#?}", account.magenta())
 }
