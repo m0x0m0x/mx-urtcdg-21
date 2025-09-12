@@ -80,6 +80,7 @@ fn make_bank() {
     // making a new account
     let account = Account::new(1, String::from("Alice"));
 
+    // here reference it being made with & which points to the main value
     let account_ref = &account;
 
     pr_acc(account_ref);
