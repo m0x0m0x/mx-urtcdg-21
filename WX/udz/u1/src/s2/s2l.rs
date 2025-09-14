@@ -92,7 +92,7 @@ Lesson 36 Commands
 - Learning life times in this section
 */
 
-fn make_and_print_account() {
+fn make_and_print_account() -> &Account {
     header("Based On Excercise");
 
     let account = Account::new(1, String::from("me"));
