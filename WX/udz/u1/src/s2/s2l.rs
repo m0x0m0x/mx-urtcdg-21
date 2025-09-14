@@ -21,7 +21,8 @@ pub fn s2_l() {
 
 fn greet() {
     pswg("Section 2 - Bank Learning ".to_string());
-    make_bank();
+    // make_bank();
+    make_and_print_account();
 }
 
 /*
@@ -84,4 +85,16 @@ fn make_bank() {
     pr_acc(account_ref);
 
     println!("{:#?}", account.magenta())
+}
+
+/*
+Lesson 36 Commands
+*/
+
+fn make_and_print_account() {
+    header("Based On Excercise");
+
+    let account = Account::new(1, String::from("me"));
+
+    println!("{:#?}", account.yellow())
 }
