@@ -89,6 +89,7 @@ fn make_bank() {
 
 /*
 Lesson 36 Commands
+- Learning life times in this section
 */
 
 fn make_and_print_account() {
