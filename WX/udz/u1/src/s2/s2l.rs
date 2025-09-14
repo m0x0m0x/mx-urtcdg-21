@@ -97,5 +97,7 @@ fn make_and_print_account() -> &Account {
 
     let account = Account::new(1, String::from("me"));
 
-    println!("{:#?}", account.yellow())
+    println!("{:#?}", account.yellow());
+
+    &account
 }
