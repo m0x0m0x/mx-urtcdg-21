@@ -20,7 +20,7 @@ pub fn s2_l() {
 // Greet function
 
 fn greet() {
-    pswg("Section 2 - Bank  ".to_string());
+    pswg("Section 2 - Bank Learning ".to_string());
     make_bank();
 }
 
