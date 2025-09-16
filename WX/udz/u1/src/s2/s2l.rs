@@ -1,5 +1,6 @@
 /*
 Section2 - Code for learning will be here
+- This was for learning and is not declared in mod.rs. so wont be used
 */
 
 #![allow(dead_code)]
@@ -22,7 +23,7 @@ pub fn s2_l() {
 fn greet() {
     pswg("Section 2 - Bank Learning ".to_string());
     // make_bank();
-    make_and_print_account();
+    // make_and_print_account();
 }
 
 /*
@@ -92,12 +93,12 @@ Lesson 36 Commands
 - Learning life times in this section
 */
 
-fn make_and_print_account() -> &Account {
-    header("Based On Excercise");
+// fn make_and_print_account() -> &Account {
+//     header("Based On Excercise");
 
-    let account = Account::new(1, String::from("me"));
+//     let account = Account::new(1, String::from("me"));
 
-    println!("{:#?}", account.yellow());
+//     println!("{:#?}", account.yellow());
 
-    &account
-}
+//     &account
+// }
