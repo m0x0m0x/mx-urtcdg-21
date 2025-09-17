@@ -60,6 +60,11 @@ impl Bank {
     fn new() -> Self {
         Bank { accounts: vec![] }
     }
+
+    // Add account
+    fn add_account(&mut self, account: Account) {
+        self.accounts.push(account);
+    }
 }
 
 // Function to make a new bank
@@ -73,17 +78,15 @@ fn pr_acc(account: &Account) {
 fn make_bank() {
     header("Making a new Bank");
 
-    // Mkaing a new bank
-    let bank = Bank::new();
-    println!("{:#?}", bank.yellow());
+    // Making a new bank
+    let mut bank = Bank::new();
 
-    // making a new account
-    let account = Account::new(1, String::from("Alice"));
+    let account = Account::new(1, "Booty".to_string());
 
-    // here reference it being made with & which points to the main value
-    let account_ref = &account;
+    bank.add_account(account);
 
-    pr_acc(account_ref);
+    // Printing using the pr_acc created above
+    pr_acc(&bank.accounts[0]);
 
-    println!("{:#?}", account.magenta())
+    // Printing using the print macro
 }
