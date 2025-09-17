@@ -110,7 +110,13 @@ fn make_bank() {
     account.withdraw(10);
 
     // Summary
-    println!("{}", account.summary().magenta());
+    println!(
+        "
+--- Account Panty ---
+{}
+",
+        account.summary()
+    );
 
     // Add Account Function
     bank.add_account(account);
