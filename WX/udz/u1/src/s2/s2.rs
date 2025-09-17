@@ -88,9 +88,9 @@ impl Bank {
         self.accounts.push(account);
     }
 
-    // Total balance
+    // Total balance - Using an iterator function
     fn tt_bal(&self) -> i32 {
-        self.accounts.iter().map(|account| account.balance.sim())
+        self.accounts.iter().map(|account| account.balance).sum()
     }
 }
 
