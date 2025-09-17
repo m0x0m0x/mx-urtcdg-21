@@ -51,9 +51,7 @@ impl Account {
     fn summary(&self) -> String {
         format!(
             "Account ID: {}, Holder: {}, Balance: {}",
-            self.id.yellow(),
-            self.holder.yellow(),
-            self.balance.green()
+            self.id, self.holder, self.balance
         )
     }
 
