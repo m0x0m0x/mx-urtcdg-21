@@ -93,13 +93,13 @@ fn make_bank() {
     let mut bank = Bank::new();
     let mut account = Account::new(1, "Booty".to_string());
 
-    bank.add_account(account);
-
     // Depositing
     account.deposit(50);
+    // Withdraw
     account.withdraw(10);
 
-    // Withdraw
+    // Add Account Function
+    bank.add_account(account);
 
     // Printing using the pr_acc created above
     pr_acc(&bank.accounts[0]);
