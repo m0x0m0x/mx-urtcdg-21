@@ -87,6 +87,11 @@ impl Bank {
     fn add_account(&mut self, account: Account) {
         self.accounts.push(account);
     }
+
+    // Total balance
+    fn tt_bal(&self) -> i32 {
+        self.accounts.iter().map(|account| account.balance.sim())
+    }
 }
 
 // Function to make a new bank
