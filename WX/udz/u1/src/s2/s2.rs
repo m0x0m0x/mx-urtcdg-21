@@ -89,4 +89,5 @@ fn make_bank() {
     pr_acc(&bank.accounts[0]);
 
     // Printing using the print macro
+    println!("{:#?}", bank.green())
 }
