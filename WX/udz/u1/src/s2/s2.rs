@@ -92,6 +92,14 @@ impl Bank {
     fn tt_bal(&self) -> i32 {
         self.accounts.iter().map(|account| account.balance).sum()
     }
+
+    // Bank Summary
+    fn summary(&self) -> Vec<String> {
+        self.accounts
+            .iter()
+            .map(|account| account.summary())
+            .collect::<Vec<String>>();
+    }
 }
 
 // Function to make a new bank
