@@ -47,12 +47,23 @@ impl Account {
         }
     }
 
+    // Summary function
+    fn summary(&self) -> String {
+        format!(
+            "Account ID: {}, Holder: {}, Balance: {}",
+            self.id.yellow(),
+            self.holder.yellow(),
+            self.balance.green()
+        )
+    }
+
     //deposut function
     fn deposit(&mut self, amount: i32) -> i32 {
         self.balance += amount;
         self.balance
     }
 
+    // Withdraw function
     fn withdraw(&mut self, amount: i32) -> i32 {
         self.balance -= amount;
         self.balance
