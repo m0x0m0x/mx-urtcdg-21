@@ -65,6 +65,9 @@ impl Bank {
     fn add_account(&mut self, account: Account) {
         self.accounts.push(account);
     }
+
+    //deposut function
+    fn deposit(&mut self, amount: i32) {}
 }
 
 // Function to make a new bank
