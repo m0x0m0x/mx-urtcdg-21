@@ -52,6 +52,11 @@ impl Account {
         self.balance += amount;
         self.balance
     }
+
+    fn withdraw(&mut self, amount: i32) -> i32 {
+        self.balance -= amount;
+        self.balance
+    }
 }
 
 // the acccounts element in the struct below as a Vector of Account structs which has been defined above
@@ -86,10 +91,15 @@ fn make_bank() {
 
     // Making a new bank
     let mut bank = Bank::new();
-
-    let account = Account::new(1, "Booty".to_string());
+    let mut account = Account::new(1, "Booty".to_string());
 
     bank.add_account(account);
+
+    // Depositing
+    account.deposit(50);
+    account.withdraw(10);
+
+    // Withdraw
 
     // Printing using the pr_acc created above
     pr_acc(&bank.accounts[0]);
