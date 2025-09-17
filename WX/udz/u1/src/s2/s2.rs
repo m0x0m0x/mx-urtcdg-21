@@ -109,6 +109,9 @@ fn make_bank() {
     // Withdraw
     account.withdraw(10);
 
+    // Summary
+    println!("{}", account.summary().magenta());
+
     // Add Account Function
     bank.add_account(account);
 
