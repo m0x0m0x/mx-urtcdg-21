@@ -98,7 +98,7 @@ impl Bank {
         self.accounts
             .iter()
             .map(|account| account.summary())
-            .collect::<Vec<String>>();
+            .collect::<Vec<String>>()
     }
 }
 
@@ -121,15 +121,6 @@ fn make_bank() {
     account.deposit(50);
     // Withdraw
     account.withdraw(10);
-
-    // Summary
-    println!(
-        "
---- Account Panty ---
-{}
-",
-        account.summary()
-    );
 
     // Add Account Function
     bank.add_account(account);
