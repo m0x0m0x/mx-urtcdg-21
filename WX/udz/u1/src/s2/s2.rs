@@ -46,6 +46,12 @@ impl Account {
             balance: 0,
         }
     }
+
+    //deposut function
+    fn deposit(&mut self, amount: i32) -> i32 {
+        self.balance += amount;
+        self.balance
+    }
 }
 
 // the acccounts element in the struct below as a Vector of Account structs which has been defined above
@@ -65,9 +71,6 @@ impl Bank {
     fn add_account(&mut self, account: Account) {
         self.accounts.push(account);
     }
-
-    //deposut function
-    fn deposit(&mut self, amount: i32) {}
 }
 
 // Function to make a new bank
