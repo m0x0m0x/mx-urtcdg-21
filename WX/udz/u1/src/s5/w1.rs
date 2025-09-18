@@ -10,4 +10,16 @@ Section 5 - Work 1.rs
 use crate::utils::{header, pswg};
 use rand::{rng, seq::SliceRandom};
 use yansi::Paint;
-// --- Sub Functions---
+
+// --- Main Function---
+
+pub fn s5_w1_main() {
+    greet();
+}
+
+// --- Sub Functions --
+
+// greeter function
+fn greet() {
+    pswg("Sec5 - Media Cataglo Enum Patterns".to_string())
+}
