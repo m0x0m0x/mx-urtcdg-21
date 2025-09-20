@@ -37,7 +37,7 @@ Learning Enums
 #[derive(Debug)]
 enum Media {
     Book { title: String, author: String },
-    Movie { title: String, dirctor: String },
+    Movie { title: String, director: String },
     Audiobook { title: String, year: i32 },
 }
 
@@ -57,9 +57,11 @@ fn pr_ab() {
         year: 2099,
     };
 
-    // Movie 
-    let mov = 
+    // Movie
+    let mov = Media::Movie {
+        title: String::from("Scat Mistress"),
+        director: String::from("AssAddict"),
+    };
 
     print_media(ab1)
 }
-
