@@ -38,7 +38,7 @@ Learning Enums
 enum Media {
     Book { title: String, author: String },
     Movie { title: String, dirctor: String },
-    Audiobook { title: String, year: usize },
+    Audiobook { title: String, year: i32 },
 }
 
 // Function to print out the enum
