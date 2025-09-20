@@ -27,5 +27,5 @@ Secton 5 - Learning l1.rs \n
 learning 
 ";
 
-    pswg(str.to_string())
+    pswg(str.to_string());
 }
