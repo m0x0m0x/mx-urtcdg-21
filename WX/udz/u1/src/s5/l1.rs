@@ -22,6 +22,6 @@ pub fn s5_l1_main() {
 
 fn greet() {
     let str = "Secton 5 - Learning l1.rs";
-
     pswg(str.to_string());
+    header("hello");
 }
