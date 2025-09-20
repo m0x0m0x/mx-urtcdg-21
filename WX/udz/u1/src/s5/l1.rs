@@ -28,6 +28,7 @@ fn greet() {
 /*
 Learning Enums
 1. Fist we will visualize what the enum should look like
+2. This is like defining 3 different structs
 */
 
 #[derive(Debug)]
