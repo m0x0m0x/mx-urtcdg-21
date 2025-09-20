@@ -25,6 +25,7 @@ fn greet() {
     pswg(str.to_string());
 
     // Sub functions here
+    pr_ab();
 }
 
 /*
@@ -48,6 +49,8 @@ fn print_media(media: Media) {
 
 // printing the audio book function
 fn pr_ab() {
+    println!("{}", "Printing the Audiobook".blue());
+
     let ab = Media::Audiobook {
         title: String::from("Booty Smelling"),
     };
