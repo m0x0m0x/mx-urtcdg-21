@@ -10,9 +10,17 @@ l1.ra
 
 // --- Imports ---
 use crate::utils::{header, pswg};
-
 use yansi::Paint;
 
 // --- Main Function ---
 
+pub fn s5_l1_main() {
+    greet();
+}
+
 // --- Sub Functions---
+
+fn greet() {
+    let str = "Secton 5 - Learning l1.rs";
+    pswg(str.to_string())
+}
