@@ -21,7 +21,7 @@ pub fn s5_l1_main() {
 // --- Sub Functions---
 
 fn greet() {
-    let str = "\n
+    let str = "
 Secton 5 - Learning l1.rs \n
 --- 
 learning 
