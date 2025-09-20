@@ -38,13 +38,13 @@ Learning Enums
 enum Media {
     Book { title: String, author: String },
     Movie { title: String, dirctor: String },
-    Audiobook { title: String },
+    Audiobook { title: String, year: usize },
 }
 
 // Function to print out the enum
 fn print_media(media: Media) {
     header("Testin prining the media enum");
-    println!("{:#?}", media)
+    println!("{:#?}", media.magenta())
 }
 
 // printing the audio book function
@@ -53,6 +53,7 @@ fn pr_ab() {
 
     let ab = Media::Audiobook {
         title: String::from("Booty Smelling"),
+        year: 2099,
     };
 
     print_media(ab)
