@@ -37,11 +37,20 @@ Learning Enums
 enum Media {
     Book { title: String, author: String },
     Movie { title: String, dirctor: String },
-    Audibook { title: String },
+    Audiobook { title: String },
 }
 
 // Function to print out the enum
 fn print_media(media: Media) {
     header("Testin prining the media enum");
     println!("{:#?}", media)
+}
+
+// printing the audio book function
+fn pr_ab() {
+    let ab = Media::Audiobook {
+        title: String::from("Booty Smelling"),
+    };
+
+    print_media(ab)
 }
