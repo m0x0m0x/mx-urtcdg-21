@@ -37,3 +37,7 @@ enum Media {
     Movie { title: String, dirctor: String },
     Audibook { title: String },
 }
+
+fn print_media(media: Media) {
+    println!("{:#?}", media)
+}
