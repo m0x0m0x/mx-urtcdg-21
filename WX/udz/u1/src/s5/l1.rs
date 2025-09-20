@@ -28,3 +28,8 @@ fn greet() {
 /*
 Learning Enums
 */
+
+enum Media {
+    Book { title: String, author: String },
+    Movie { title: String, author: String },
+}
