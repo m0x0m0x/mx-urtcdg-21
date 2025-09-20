@@ -32,6 +32,7 @@ fn greet() {
 Learning Enums
 1. Fist we will visualize what the enum should look like
 2. This is like defining 3 different structs
+3. In a case where you need similar structs use enums
 */
 
 #[derive(Debug)]
@@ -43,7 +44,7 @@ enum Media {
 
 // Function to print out the enum
 fn print_media(media: Media) {
-    header("Testin prining the media enum");
+    header("Printing Enums");
     println!("{:#?}", media.magenta())
 }
 
@@ -66,9 +67,10 @@ fn pr_ab() {
     // Book
     let bok1 = Media::Book {
         title: String::from("BootyLicking"),
-        author: String::from("AssAddict"),
+        author: String::from("Booty Addicts"),
     };
 
     print_media(ab1);
     print_media(mov1);
+    print_media(bok1);
 }
