@@ -27,9 +27,11 @@ fn greet() {
 
 /*
 Learning Enums
+1. Fist we will visualize what the enum should look like
 */
 
 enum Media {
     Book { title: String, author: String },
-    Movie { title: String, author: String },
+    Movie { title: String, dirctor: String },
+    Audibook { title: String },
 }
