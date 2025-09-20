@@ -30,6 +30,7 @@ Learning Enums
 1. Fist we will visualize what the enum should look like
 */
 
+#[derive(Debug)]
 enum Media {
     Book { title: String, author: String },
     Movie { title: String, dirctor: String },
