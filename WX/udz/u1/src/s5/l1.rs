@@ -23,6 +23,9 @@ pub fn s5_l1_main() {
 fn greet() {
     let str = "Secton 5 - Learning l1.rs";
     pswg(str.to_string());
+
+    // Sub functions here
+    print_media(Media);
 }
 
 /*
@@ -39,5 +42,6 @@ enum Media {
 }
 
 fn print_media(media: Media) {
+    header("Testin prining the media enum");
     println!("{:#?}", media)
 }
