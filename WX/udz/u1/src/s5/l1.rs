@@ -58,10 +58,17 @@ fn pr_ab() {
     };
 
     // Movie
-    let mov = Media::Movie {
+    let mov1 = Media::Movie {
         title: String::from("Scat Mistress"),
         director: String::from("AssAddict"),
     };
 
-    print_media(ab1)
+    // Book
+    let bok1 = Media::Book {
+        title: String::from("BootyLicking"),
+        author: String::from("AssAddict"),
+    };
+
+    print_media(ab1);
+    print_media(mov1);
 }
