@@ -25,7 +25,6 @@ fn greet() {
     pswg(str.to_string());
 
     // Sub functions here
-    print_media(Media);
 }
 
 /*
@@ -41,6 +40,7 @@ enum Media {
     Audibook { title: String },
 }
 
+// Function to print out the enum
 fn print_media(media: Media) {
     header("Testin prining the media enum");
     println!("{:#?}", media)
