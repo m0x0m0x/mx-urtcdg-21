@@ -28,5 +28,4 @@ learning
 ";
 
     pswg(str.to_string());
-    pswg("What \n Mean \n this ".to_string())
 }
