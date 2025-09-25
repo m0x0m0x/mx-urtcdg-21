@@ -81,5 +81,8 @@ fn pr_ab() {
     // print_media(mov1);
     // print_media(bok1);
 
-    // Printing the
+    // Printing the methods
+    ab1.description();
+    mov1.description();
+    bok1.description();
 }
