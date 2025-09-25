@@ -47,6 +47,10 @@ impl Media {
         // Simple string print note the function is returning a scriing
         String::from("Media Description")
     }
+
+    fn smell_panty(&self) -> String {
+        String::from("Pussy Licker")
+    }
 }
 
 // Function to print out the enum
@@ -86,4 +90,6 @@ fn pr_ab() {
     println!("{}", ab1.description1().yellow());
     println!("{}", mov1.description1().green());
     println!("{}", bok1.description1().blue());
+
+    println!("{}", ab1.smell_panty().red())
 }
