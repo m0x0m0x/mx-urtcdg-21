@@ -76,7 +76,10 @@ fn pr_ab() {
         author: String::from("Booty Addicts"),
     };
 
-    print_media(ab1);
-    print_media(mov1);
-    print_media(bok1);
+    // Printing the enums
+    // print_media(ab1);
+    // print_media(mov1);
+    // print_media(bok1);
+
+    // Printing the
 }
