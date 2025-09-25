@@ -42,6 +42,12 @@ enum Media {
     Audiobook { title: String, year: i32 },
 }
 
+impl Media {
+    fn description(&self) -> String {
+        String::from("Media Description")
+    }
+}
+
 // Function to print out the enum
 fn print_media(media: Media) {
     header("Printing Enums");
