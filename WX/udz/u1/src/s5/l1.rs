@@ -56,7 +56,7 @@ fn print_media(media: Media) {
 
 // printing the audio book function
 fn pr_ab() {
-    println!("{}", "Printing the Audiobook".blue());
+    header("Printing the Enum");
 
     // Audio Book
     let ab1 = Media::Audiobook {
@@ -85,4 +85,8 @@ fn pr_ab() {
     ab1.description();
     mov1.description();
     bok1.description();
+
+    println!("{}", ab1.description().yellow());
+    println!("{}", mov1.description().green());
+    println!("{}", bok1.description().blue());
 }
