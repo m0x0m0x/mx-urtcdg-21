@@ -43,7 +43,8 @@ enum Media {
 }
 
 impl Media {
-    fn description(&self) -> String {
+    fn description1(&self) -> String {
+        // Simple string print note the function is returning a scriing
         String::from("Media Description")
     }
 }
@@ -82,11 +83,7 @@ fn pr_ab() {
     // print_media(bok1);
 
     // Printing the methods
-    ab1.description();
-    mov1.description();
-    bok1.description();
-
-    println!("{}", ab1.description().yellow());
-    println!("{}", mov1.description().green());
-    println!("{}", bok1.description().blue());
+    println!("{}", ab1.description1().yellow());
+    println!("{}", mov1.description1().green());
+    println!("{}", bok1.description1().blue());
 }
