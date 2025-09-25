@@ -48,6 +48,7 @@ impl Media {
         String::from("Media Description")
     }
 
+    // Test Function for printiing stuff
     fn smell_panty(&self) -> String {
         String::from("Pussy Licker")
     }
