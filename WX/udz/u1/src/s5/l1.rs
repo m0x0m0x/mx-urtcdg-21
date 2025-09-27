@@ -170,5 +170,6 @@ fn pr_ab() {
     // println!("{:#?}", catalog.items.get(10));
 
     // Option is a built in use case
-    //
+    let item = catalog.get_by_index(10);
+    println!("{:#?}", item);
 }
