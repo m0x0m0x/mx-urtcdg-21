@@ -185,7 +185,7 @@ fn pr_ab() {
 
     match catalog.get_by_index(0) {
         MightHaveAValue::ThereIsAValue(value) => {
-            println!("{:#?}", value);
+            println!("Item : {:#?}", value);
         }
         MightHaveAValue::NoValueAvailable => {
             println!("No Value Available");
