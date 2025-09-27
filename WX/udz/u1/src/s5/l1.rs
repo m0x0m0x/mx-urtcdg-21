@@ -103,7 +103,9 @@ impl Catalog {
     fn get_by_index(&self, index: usize) -> &Media {
         if self.items.len() > index {
             // good we have something to return
-            &self.items[index];
+            &self.items[index]
+        } else {
+            // Bad ! - Nothing to returb
         }
     }
 }
