@@ -165,12 +165,12 @@ fn pr_ab() {
     // println!("{:#?}", catalog.items.get(10));
 
     // Option is a built in use case
-    match catalog.items.get(3) {
-        Some(value) => {
-            println!("Item: {:#?}", value);
-        }
-        None => {
-            println!("None - No Panty");
-        }
-    }
+    // match catalog.items.get(3) {
+    //     Some(value) => {
+    //         println!("Item: {:#?}", value);
+    //     }
+    //     None => {
+    //         println!("None - No Panty");
+    //     }
+    // }
 }
