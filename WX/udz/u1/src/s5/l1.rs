@@ -42,7 +42,7 @@ enum Media {
     Audiobook { title: String, year: i32 },
 }
 
-// Implementation of every enum  - On Implementation Block
+// Implementation of every variants - On Implementation Block
 impl Media {
     fn description1(&self) -> String {
         // Simple string print note the function is returning a scriing
@@ -52,6 +52,26 @@ impl Media {
     // Test Function for printiing stuff
     fn smell_panty(&self) -> String {
         String::from("Pussy Licker")
+    }
+
+    // Printing - execution based on teh varian
+    fn description2(&self) -> String {
+        // Is self a Book ?
+        // Is self a Movie ?
+        // Is self a AudioBook ?
+
+        // Usign Match Statements - pttern Match statemnt
+        match self {
+            Media::Book { title, author } => {
+                format!("Book: {} by {}", title, author)
+            }
+            Media::Movie { title, director } => {
+                format!("Movie: {} by {}", title, director)
+            }
+            Media::Audiobook { title, year } => {
+                format!("Audiobook: {} published in {}", title, year)
+            }
+        }
     }
 }
 
@@ -89,9 +109,14 @@ fn pr_ab() {
     // print_media(bok1);
 
     // Printing the methods
-    println!("{}", ab1.description1().yellow());
-    println!("{}", mov1.description1().green());
-    println!("{}", bok1.description1().blue());
+    // println!("{}", ab1.description1().yellow());
+    // println!("{}", mov1.description1().green());
+    // println!("{}", bok1.description1().blue());
 
-    println!("{}", ab1.smell_panty().red())
+    // println!("{}", ab1.smell_panty().red())
+
+    // using the match statement- Printing it out
+    println!("{}", ab1.description2().yellow());
+    println!("{}", mov1.description2().green());
+    println!("{}", bok1.description2().blue());
 }
