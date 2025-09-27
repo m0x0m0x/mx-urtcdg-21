@@ -183,18 +183,19 @@ fn pr_ab() {
     // Option is a built in use case
     //
 
-    // match catalog.get_by_index(1000) {
-    //     MightHaveAValue::ThereIsAValue(value) => {
-    //         println!("Item : {:#?}", value);
-    //     }
-    //     MightHaveAValue::NoValueAvailable => {
-    //         println!("No Value Available");
-    //     }
-    // }
-
-    if let Some(value) = catalog.get_by_index(100) {
-        println!("Item Pattern Match: {:#?}", value);
-    } else {
-        println!("No Value Available");
+    match catalog.get_by_index(1) {
+        Some(value) => {
+            println!("Item : {:#?}", value);
+        }
+        None => {
+            println!("No Value Available");
+        }
     }
+
+    // This is for demonstartion the Enum Some and None
+    // if let Some(value) = catalog.get_by_index(100) {
+    //     println!("Item Pattern Match: {:#?}", value);
+    // } else {
+    //     println!("No Value Available");
+    // }
 }
