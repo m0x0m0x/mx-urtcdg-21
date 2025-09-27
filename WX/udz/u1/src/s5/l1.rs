@@ -163,12 +163,12 @@ fn pr_ab() {
 
     //-- Printing individual variants from the enum ---
     // println!("{:#?}", catalog.items.get(10));
-    match catalog.items.get(0) {
-        Option::Some(value) => {
+    match catalog.items.get(100) {
+        Some(value) => {
             println!("Item: {:#?}", value);
         }
-        Option::None => {
-            println!("None");
+        None => {
+            println!("None - No Panty");
         }
     }
 }
