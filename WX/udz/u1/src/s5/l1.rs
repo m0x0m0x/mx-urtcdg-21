@@ -137,7 +137,7 @@ fn pr_ab() {
     // println!("{}", mov1.description2().green());
     // println!("{}", bok1.description2().blue());
 
-    // Make catalog
+    // Make catalog - And Push items
     let mut catalog = Catalog::new();
     catalog.add(ab1);
     catalog.add(mov1);
