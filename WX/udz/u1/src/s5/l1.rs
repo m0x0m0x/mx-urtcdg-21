@@ -227,23 +227,6 @@ fn pr_ab2() {
     // Placeholder
     let ph1 = Media::Placeholder;
 
-    // Printing the enums
-    // print_media(ab1);
-    // print_media(mov1);
-    // print_media(bok1);
-
-    // Printing the methods
-    // println!("{}", ab1.description1().yellow());
-    // println!("{}", mov1.description1().green());
-    // println!("{}", bok1.description1().blue());
-
-    // println!("{}", ab1.smell_panty().red())
-
-    // using the match statement- Printing it out
-    // println!("{}", ab1.description2().yellow());
-    // println!("{}", mov1.description2().green());
-    // println!("{}", bok1.description2().blue());
-
     // Make catalog - And Push items
     let mut catalog = Catalog::new();
     catalog.add(ab1);
@@ -252,27 +235,5 @@ fn pr_ab2() {
     catalog.add(pod1);
     catalog.add(ph1);
 
-    // println!("{:#?}", catalog);
-
-    //-- Printing individual variants from the enum ---
-    // println!("{:#?}", catalog.items.get(10));
-
-    // Option is a built in use case
-    //
-
-    // match catalog.get_by_index(1) {
-    //     Some(value) => {
-    //         println!("Item : {:#?}", value);
-    //     }
-    //     None => {
-    //         println!("No Value Available");
-    //     }
-    // }
-
-    // This is for demonstartion the Enum Some and None
-    // if let Some(value) = catalog.get_by_index(100) {
-    //     println!("Item Pattern Match: {:#?}", value);
-    // } else {
-    //     println!("No Value Available");
-    // }
+    let item = catalog.get_by_index(10);
 }
