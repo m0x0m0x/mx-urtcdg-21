@@ -111,8 +111,8 @@ impl Catalog {
     }
 }
 
-enum MightHaveAValue {
-    ThereIsAValue(&Media),
+enum MightHaveAValue<'a> {
+    ThereIsAValue(&'a Media),
     NoValueAvailable,
 }
 
@@ -182,5 +182,5 @@ fn pr_ab() {
 
     // Option is a built in use case
     let item = catalog.get_by_index(10);
-    println!("{:#?}", item);
+    // println!("{:#?}", item);
 }
