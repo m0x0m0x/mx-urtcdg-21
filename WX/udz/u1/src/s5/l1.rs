@@ -163,7 +163,9 @@ fn pr_ab() {
 
     //-- Printing individual variants from the enum ---
     // println!("{:#?}", catalog.items.get(10));
-    match catalog.items.get(100) {
+
+    // Option is a built in use case
+    match catalog.items.get(3) {
         Some(value) => {
             println!("Item: {:#?}", value);
         }
