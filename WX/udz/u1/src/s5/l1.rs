@@ -101,7 +101,10 @@ impl Catalog {
 
     // Mimicking the Some option with a manual function
     fn get_by_index(&self, index: usize) -> &Media {
-        &self.items[index]
+        if self.items.len() > index {
+            // good we have something to return
+            &self.items[index];
+        }
     }
 }
 
