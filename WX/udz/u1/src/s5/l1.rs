@@ -100,7 +100,7 @@ impl Catalog {
     }
 
     // Mimicking the Some option with a manual function
-    fn get_by_index(&self, index: usize) -> MightHaveAValue {
+    fn get_by_index(&self, index: usize) -> MightHaveAValue<'_> {
         if self.items.len() > index {
             // good we have something to return
             MightHaveAValue::ThereIsAValue(&self.items[index])
@@ -181,6 +181,14 @@ fn pr_ab() {
     // println!("{:#?}", catalog.items.get(10));
 
     // Option is a built in use case
-    let item = catalog.get_by_index(10);
-    // println!("{:#?}", item);
+    //
+
+    match catalog.get_by_index(0) {
+        MightHaveAValue::ThereIsAValue(value) => {
+            println!("{:#?}", value);
+        }
+        MightHaveAValue::NoValueAvailable => {
+            println!("No Value Available");
+        }
+    }
 }
