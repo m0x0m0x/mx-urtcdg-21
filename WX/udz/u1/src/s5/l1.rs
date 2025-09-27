@@ -76,7 +76,9 @@ impl Media {
             Media::Podcast(id) => {
                 format!("Podcast Episode: {}", id)
             }
-            Media::Placeholder => String::from("Placeholder"),
+            Media::Placeholder => {
+                format!("Placeholder")
+            }
         }
     }
 }
@@ -126,6 +128,12 @@ fn pr_ab() {
         author: String::from("Booty Addicts"),
     };
 
+    // Podcast
+    let pod1 = Media::Podcast(69);
+
+    // Placeholder
+    let ph1 = Media::Placeholder;
+
     // Printing the enums
     // print_media(ab1);
     // print_media(mov1);
@@ -148,6 +156,8 @@ fn pr_ab() {
     catalog.add(ab1);
     catalog.add(mov1);
     catalog.add(bok1);
+    catalog.add(pod1);
+    catalog.add(ph1);
 
     println!("{:#?}", catalog);
 }
