@@ -73,6 +73,10 @@ impl Media {
             Media::Audiobook { title, year } => {
                 format!("Audiobook: {} published in {}", title, year)
             }
+            Media::Podcast(id) => {
+                format!("Podcast Episode: {}", id)
+            }
+            Media::Placeholder => String::from("Placeholder"),
         }
     }
 }
