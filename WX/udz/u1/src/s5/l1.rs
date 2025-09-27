@@ -25,7 +25,7 @@ fn greet() {
     pswg(str.to_string());
 
     // Sub functions here
-    pr_ab();
+    pr_ab2();
 }
 
 /*
@@ -124,6 +124,83 @@ fn print_media(media: Media) {
 
 // printing the audio book function
 fn pr_ab() {
+    header("Printing the Enum - Variants with match statemetns");
+
+    // Audio Book
+    let ab1 = Media::Audiobook {
+        title: String::from("Booty Smelling"),
+        year: 2099,
+    };
+
+    // Movie
+    let mov1 = Media::Movie {
+        title: String::from("Scat Mistress"),
+        director: String::from("AssAddict"),
+    };
+
+    // Book
+    let bok1 = Media::Book {
+        title: String::from("BootyLicking"),
+        author: String::from("Booty Addicts"),
+    };
+
+    // Podcast
+    let pod1 = Media::Podcast(69);
+
+    // Placeholder
+    let ph1 = Media::Placeholder;
+
+    // Printing the enums
+    // print_media(ab1);
+    // print_media(mov1);
+    // print_media(bok1);
+
+    // Printing the methods
+    // println!("{}", ab1.description1().yellow());
+    // println!("{}", mov1.description1().green());
+    // println!("{}", bok1.description1().blue());
+
+    // println!("{}", ab1.smell_panty().red())
+
+    // using the match statement- Printing it out
+    // println!("{}", ab1.description2().yellow());
+    // println!("{}", mov1.description2().green());
+    // println!("{}", bok1.description2().blue());
+
+    // Make catalog - And Push items
+    let mut catalog = Catalog::new();
+    catalog.add(ab1);
+    catalog.add(mov1);
+    catalog.add(bok1);
+    catalog.add(pod1);
+    catalog.add(ph1);
+
+    // println!("{:#?}", catalog);
+
+    //-- Printing individual variants from the enum ---
+    // println!("{:#?}", catalog.items.get(10));
+
+    // Option is a built in use case
+    //
+
+    // match catalog.get_by_index(1) {
+    //     Some(value) => {
+    //         println!("Item : {:#?}", value);
+    //     }
+    //     None => {
+    //         println!("No Value Available");
+    //     }
+    // }
+
+    // This is for demonstartion the Enum Some and None
+    // if let Some(value) = catalog.get_by_index(100) {
+    //     println!("Item Pattern Match: {:#?}", value);
+    // } else {
+    //     println!("No Value Available");
+    // }
+}
+
+fn pr_ab2() {
     header("Printing the Enum - Variants with match statemetns");
 
     // Audio Book
