@@ -100,21 +100,21 @@ impl Catalog {
     }
 
     // Mimicking the Some option with a manual function
-    fn get_by_index(&self, index: usize) -> MightHaveAValue<'_> {
+    fn get_by_index(&self, index: usize) -> Option<&Media> {
         if self.items.len() > index {
             // good we have something to return
-            MightHaveAValue::ThereIsAValue(&self.items[index])
+            Some(&self.items[index])
         } else {
             // Bad ! - Nothing to returb
-            MightHaveAValue::NoValueAvailable
+            None
         }
     }
 }
 
-enum MightHaveAValue<'a> {
-    ThereIsAValue(&'a Media),
-    NoValueAvailable,
-}
+// enum MightHaveAValue<'a> {
+//     ThereIsAValue(&'a Media),
+//     NoValueAvailable,
+// }
 
 // Function to print out the enum
 fn print_media(media: Media) {
@@ -192,7 +192,7 @@ fn pr_ab() {
     //     }
     // }
 
-    if let MightHaveAValue::ThereIsAValue(value) = catalog.get_by_index(100) {
+    if let Some(value) = catalog.get_by_index(100) {
         println!("Item Pattern Match: {:#?}", value);
     } else {
         println!("No Value Available");
