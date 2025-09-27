@@ -98,6 +98,11 @@ impl Catalog {
     fn add(&mut self, media: Media) {
         self.items.push(media);
     }
+
+    // Mimicking the Some option with a manual function
+    fn get_by_index(&self, index: usize) -> &Media {
+        &self.items[index]
+    }
 }
 
 // Function to print out the enum
@@ -165,12 +170,5 @@ fn pr_ab() {
     // println!("{:#?}", catalog.items.get(10));
 
     // Option is a built in use case
-    // match catalog.items.get(3) {
-    //     Some(value) => {
-    //         println!("Item: {:#?}", value);
-    //     }
-    //     None => {
-    //         println!("None - No Panty");
-    //     }
-    // }
+    //
 }
