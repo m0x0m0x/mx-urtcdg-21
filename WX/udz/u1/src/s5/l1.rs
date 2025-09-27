@@ -85,6 +85,8 @@ impl Catalog {
     fn new() -> Self {
         Catalog { items: vec![] }
     }
+
+    fn add(&mut self, media: Media) {}
 }
 
 // Function to print out the enum
