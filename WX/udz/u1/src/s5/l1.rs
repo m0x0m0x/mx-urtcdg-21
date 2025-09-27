@@ -40,6 +40,8 @@ enum Media {
     Book { title: String, author: String },
     Movie { title: String, director: String },
     Audiobook { title: String, year: i32 },
+    Podcast(u32),
+    Placeholder,
 }
 
 // Implementation of every variants - On Implementation Block
