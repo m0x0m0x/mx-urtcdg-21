@@ -183,12 +183,18 @@ fn pr_ab() {
     // Option is a built in use case
     //
 
-    match catalog.get_by_index(0) {
+    match catalog.get_by_index(1000) {
         MightHaveAValue::ThereIsAValue(value) => {
             println!("Item : {:#?}", value);
         }
         MightHaveAValue::NoValueAvailable => {
             println!("No Value Available");
         }
+    }
+
+    if let MightHaveAValue::ThereIsAValue(value) = catalog.get_by_index(1000) {
+        println!("Item : {:#?}", value);
+    } else {
+        println!("No Value Available");
     }
 }
