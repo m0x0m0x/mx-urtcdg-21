@@ -100,14 +100,20 @@ impl Catalog {
     }
 
     // Mimicking the Some option with a manual function
-    fn get_by_index(&self, index: usize) -> &Media {
+    fn get_by_index(&self, index: usize) -> MightHaveAValue {
         if self.items.len() > index {
             // good we have something to return
-            &self.items[index]
+            MightHaveAValue::ThereIsAValue(&self.items[index])
         } else {
             // Bad ! - Nothing to returb
+            MightHaveAValue::NoValueAvailable
         }
     }
+}
+
+enum MightHaveAValue {
+    ThereIsAValue(&Media),
+    NoValueAvailable,
 }
 
 // Function to print out the enum
