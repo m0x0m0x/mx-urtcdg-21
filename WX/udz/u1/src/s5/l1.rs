@@ -75,6 +75,18 @@ impl Media {
     }
 }
 
+// Struct for catalog function
+
+struct Catalog {
+    items: Vec<Media>,
+}
+
+impl Catalog {
+    fn new() -> Self {
+        Catalog { items: vec![] }
+    }
+}
+
 // Function to print out the enum
 fn print_media(media: Media) {
     header("Printing Enums");
