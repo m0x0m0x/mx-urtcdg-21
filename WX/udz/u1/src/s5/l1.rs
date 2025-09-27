@@ -162,5 +162,5 @@ fn pr_ab() {
     // println!("{:#?}", catalog);
 
     //-- Printing individual variants from the enum ---
-    println!("{:#?}", catalog.items.get(10));
+    // println!("{:#?}", catalog.items.get(10));
 }
