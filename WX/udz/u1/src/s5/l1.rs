@@ -83,7 +83,7 @@ fn print_media(media: Media) {
 
 // printing the audio book function
 fn pr_ab() {
-    header("Printing the Enum");
+    header("Printing the Enum - Variants with match statemetns");
 
     // Audio Book
     let ab1 = Media::Audiobook {
