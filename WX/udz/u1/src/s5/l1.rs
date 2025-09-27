@@ -77,6 +77,7 @@ impl Media {
 
 // Struct for catalog function
 
+#[derive(Debug)]
 struct Catalog {
     items: Vec<Media>,
 }
