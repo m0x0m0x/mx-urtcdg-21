@@ -159,5 +159,8 @@ fn pr_ab() {
     catalog.add(pod1);
     catalog.add(ph1);
 
-    println!("{:#?}", catalog);
+    // println!("{:#?}", catalog);
+
+    //-- Printing individual variants from the enum ---
+    println!("{:#?}", catalog.items[1]);
 }
