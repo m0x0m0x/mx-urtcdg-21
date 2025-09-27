@@ -25,8 +25,7 @@ fn greet() {
     pswg(str.to_string());
 
     // Sub functions here
-    // pr_ab();
-    lesson56();
+    pr_ab();
 }
 
 /*
@@ -184,14 +183,14 @@ fn pr_ab() {
     // Option is a built in use case
     //
 
-    match catalog.get_by_index(1) {
-        Some(value) => {
-            println!("Item : {:#?}", value);
-        }
-        None => {
-            println!("No Value Available");
-        }
-    }
+    // match catalog.get_by_index(1) {
+    //     Some(value) => {
+    //         println!("Item : {:#?}", value);
+    //     }
+    //     None => {
+    //         println!("No Value Available");
+    //     }
+    // }
 
     // This is for demonstartion the Enum Some and None
     // if let Some(value) = catalog.get_by_index(100) {
