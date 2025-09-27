@@ -42,6 +42,7 @@ enum Media {
     Audiobook { title: String, year: i32 },
 }
 
+// Implementation of every enum  - On Implementation Block
 impl Media {
     fn description1(&self) -> String {
         // Simple string print note the function is returning a scriing
