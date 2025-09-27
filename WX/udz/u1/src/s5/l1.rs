@@ -86,7 +86,9 @@ impl Catalog {
         Catalog { items: vec![] }
     }
 
-    fn add(&mut self, media: Media) {}
+    fn add(&mut self, media: Media) {
+        self.items.push(media);
+    }
 }
 
 // Function to print out the enum
@@ -130,7 +132,15 @@ fn pr_ab() {
     // println!("{}", ab1.smell_panty().red())
 
     // using the match statement- Printing it out
-    println!("{}", ab1.description2().yellow());
-    println!("{}", mov1.description2().green());
-    println!("{}", bok1.description2().blue());
+    // println!("{}", ab1.description2().yellow());
+    // println!("{}", mov1.description2().green());
+    // println!("{}", bok1.description2().blue());
+
+    // Make catalog
+    let mut catalog = Catalog::new();
+    catalog.add(ab1);
+    catalog.add(mov1);
+    catalog.add(bok1);
+
+    println!("{:#?}", catalog);
 }
