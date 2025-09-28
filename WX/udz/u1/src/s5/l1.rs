@@ -235,5 +235,11 @@ fn pr_ab2() {
     catalog.add(pod1);
     catalog.add(ph1);
 
-    let item = catalog.get_by_index(10);
+    let item = catalog.get_by_index(1);
+
+    println!("{}", "---Just printing the item---".yellow());
+    println!("{:#?}", item);
+
+    println!("{}", "--- Print item with unwarp ---".yellow());
+    println!("{:#?}", item.unwrap());
 }
