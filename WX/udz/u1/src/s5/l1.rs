@@ -235,14 +235,14 @@ fn pr_ab2() {
     catalog.add(pod1);
     catalog.add(ph1);
 
-    let item = catalog.get_by_index(100);
+    let item = catalog.get_by_index(10);
 
-    println!("{}", "---Just printing the item---".yellow());
-    println!("{:#?}", item);
+    // println!("{}", "---Just printing the item---".yellow());
+    // println!("{:#?}", item);
 
-    println!("{}", "--- Print item with unwarp ---".yellow());
-    println!("{:#?}", item.unwrap());
+    // println!("{}", "--- Print item with unwarp ---".yellow());
+    // println!("{:#?}", item.unwrap());
 
     println!("{}", "--- Using Expect ---".yellow());
-    println!("{:#?}", item.expect("No Value Available"));
+    println!("{:#?}", item.expect("FUCK OFF - No Value"));
 }
