@@ -233,9 +233,9 @@ fn pr_ab2() {
     catalog.add(mov1);
     catalog.add(bok1);
     catalog.add(pod1);
-    catalog.add(ph1);
+    // catalog.add(ph1);
 
-    let item = catalog.get_by_index(10);
+    let item = catalog.get_by_index(100);
 
     // println!("{}", "---Just printing the item---".yellow());
     // println!("{:#?}", item);
@@ -243,6 +243,9 @@ fn pr_ab2() {
     // println!("{}", "--- Print item with unwarp ---".yellow());
     // println!("{:#?}", item.unwrap());
 
-    println!("{}", "--- Using Expect ---".yellow());
-    println!("{:#?}", item.expect("FUCK OFF - No Value"));
+    // println!("{}", "--- Using Expect ---".yellow());
+    // println!("{:#?}", item.expect("FUCK OFF - No Value"));
+
+    println!("{}", "--- Using unwrap_or ---".yellow());
+    println!("{:#?}", item.unwrap_or(&ph1));
 }
