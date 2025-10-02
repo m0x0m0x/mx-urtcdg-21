@@ -31,5 +31,5 @@ fn greet() {
 fn func1() {
     header("Opening and Reading the file");
     let file = fs::read_to_string("src/s7/s7logs.txt").unwrap();
-    println!("{}", file.yellow());
+    println!("{:#?}", file.yellow());
 }
