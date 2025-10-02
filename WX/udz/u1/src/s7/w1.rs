@@ -1,5 +1,7 @@
 /*
 Section 7 - Section 7 work here
+- Focus is on making various logs
+- Focus on handling errors
 */
 
 #![allow(dead_code)]
