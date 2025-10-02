@@ -31,5 +31,10 @@ fn greet() {
 fn func1() {
     header("Opening and Reading the file");
     let file = fs::read_to_string("src/s7/s7logs.txt").unwrap();
+
+    // note this formatter is for debugging of data strcuts
     println!("{:#?}", file.yellow());
+
+    // Normally print out to terminal done like this
+    println!("{}", file.blue());
 }
