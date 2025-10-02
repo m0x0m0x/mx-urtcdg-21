@@ -10,6 +10,7 @@ Section 7 - Section 7 work here
 // --- Imports ---
 use crate::utils::{header, pswg};
 use rand::{rng, seq::SliceRandom};
+use std::fs;
 use yansi::Paint;
 
 // --- Main Function ---
@@ -22,4 +23,10 @@ pub fn s7_w1_main() {
 
 fn greet() {
     pswg("Sec7 - Section 7 work here".to_string())
+}
+
+// Open and reading the file
+
+fn func1() {
+    let file = fs::read_to_string("s7logs.txt");
 }
