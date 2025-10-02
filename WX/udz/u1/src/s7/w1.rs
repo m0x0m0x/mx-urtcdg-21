@@ -17,6 +17,7 @@ use yansi::Paint;
 
 pub fn s7_w1_main() {
     greet();
+    func1();
 }
 
 // --- Sub Functions ---
@@ -28,5 +29,7 @@ fn greet() {
 // Open and reading the file
 
 fn func1() {
-    let file = fs::read_to_string("s7logs.txt");
+    header("Opening and Reading the file");
+    let file = fs::read_to_string("src/s7/s7logs.txt").unwrap();
+    println!("{:#?}", file.yellow());
 }
