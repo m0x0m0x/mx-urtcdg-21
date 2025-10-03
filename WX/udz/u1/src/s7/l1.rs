@@ -16,6 +16,7 @@ use yansi::Paint;
 
 pub fn s7_l1_main() {
     greet();
+    div1();
 }
 
 // --- Sub Functions ---
@@ -34,4 +35,11 @@ fn divide(a: f64, b: f64) -> Result<f64, Error> {
     } else {
         Ok(a / b)
     }
+}
+
+// Implement above function
+
+fn div1() {
+    let a1 = divide(10.0, 2.0);
+    println!("{} = {}", "10/2 is ", a1.unwrap());
 }
