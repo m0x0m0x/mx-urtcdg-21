@@ -9,12 +9,16 @@ l1.rs -
 
 // --- Imports ---
 use crate::utils::{header, pswg};
+use std::io::Error;
 use yansi::Paint;
 
 // --- Main Function ---
 
 pub fn s7_l1_main() {
     greet();
+
+    let a = divide(10.0, 2.0);
+    println!("{}", a.blue());
 }
 
 // --- Sub Functions ---
@@ -30,6 +34,7 @@ fn greet() {
 fn divide(a: f64, b: f64) -> Result<f64, Error> {
     if b == 0.0 {
         Err(Error::other("Fucker no division by zero"))
+    } else {
+        Ok(a / b)
     }
-    Ok(a / b)
 }
