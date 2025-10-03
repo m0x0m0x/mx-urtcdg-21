@@ -9,7 +9,7 @@ l1.rs -
 
 // --- Imports ---
 use crate::utils::{header, pswg};
-use std::io::Error;
+use std::io::Error; // Required for custom error handling
 use yansi::Paint;
 
 // --- Main Function ---
@@ -41,6 +41,12 @@ fn divide(a: f64, b: f64) -> Result<f64, Error> {
 
 fn div1() {
     header("Div1 - Function");
-    let a1 = divide(10.0, 2.0);
+
+    let val1 = 10.0;
+    let val2 = 2.99;
+
+    let a1 = divide(val1, val2);
+
+    // note you need unwrap() to get the value out of the result
     println!("{} = {}", "10/2 is ", a1.unwrap().blue());
 }
