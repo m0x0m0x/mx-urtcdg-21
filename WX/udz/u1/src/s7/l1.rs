@@ -43,7 +43,7 @@ fn div1() {
     header("Div1 - Function");
 
     let val1 = 10.0;
-    let val2 = 2.99;
+    let val2 = 3.0;
 
     let a1 = divide(val1, val2);
 
