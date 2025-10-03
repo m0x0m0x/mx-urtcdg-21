@@ -27,6 +27,9 @@ fn greet() {
 
 // Divid function for learning about enums
 
-fn divide(a: f64, b: f64) -> Result<f64, String> {
-    a / b;
+fn divide(a: f64, b: f64) -> Result<f64, Error> {
+    if b == 0.0 {
+        return Err(Error::DivideByZero);
+    }
+    Ok(a / b)
 }
