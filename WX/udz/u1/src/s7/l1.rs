@@ -24,3 +24,9 @@ fn greet() {
 }
 
 // --- Sub Functions ---
+
+// Divid function for learning about enums
+
+fn divide(a: f64, b: f64) -> Result<f64, String> {
+    a / b;
+}
