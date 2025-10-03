@@ -50,3 +50,9 @@ fn div1() {
     // note you need unwrap() to get the value out of the result
     println!("{} = {}", "10/2 is ", a1.unwrap().blue());
 }
+
+//div2
+
+fn div2() {
+    header("Executing Division Function");
+}
