@@ -16,7 +16,8 @@ use yansi::Paint;
 
 pub fn s7_l1_main() {
     greet();
-    div1();
+    // div1();
+    div2();
 }
 
 // --- Sub Functions ---
@@ -54,5 +55,6 @@ fn div1() {
 //div2
 
 fn div2() {
-    header("Executing Division Function");
+    header("Div 2 ");
+    divide(12.0, 3.0);
 }
