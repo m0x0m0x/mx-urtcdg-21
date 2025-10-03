@@ -16,9 +16,6 @@ use yansi::Paint;
 
 pub fn s7_l1_main() {
     greet();
-
-    let a = divide(10.0, 2.0);
-    println!("{}", a.blue());
 }
 
 // --- Sub Functions ---
