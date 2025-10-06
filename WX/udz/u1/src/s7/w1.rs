@@ -64,8 +64,31 @@ fn func2() {
 // test function for strings
 
 // fn string_test(a: String, b: &String, c: &str) {}
-
 fn func3() {
+    header("Using match statement");
+
+    // string_test(String::from("Panty"), &String::from("Panty"), "Panty");
+
+    match fs::read_to_string("src/s7/s7logs.txt") {
+        Ok(file) => {
+            println!("{}", "---Printing With formatter Characters---".on_blue());
+            println!("{:#?}", file.len().yellow());
+            println!("{}", "---Printing Full File---".on_blue());
+            println!("{:#?}", file.yellow());
+        }
+        Err(e) => {
+            println!("{}", "Error: ".red());
+            println!("{}", e.to_string().red());
+        }
+    }
+}
+
+/*
+For extracting error part , will again copy the function
+- Then the extract errors will be used on it
+*/
+
+fn func4() {
     header("Using match statement");
 
     // string_test(String::from("Panty"), &String::from("Panty"), "Panty");
