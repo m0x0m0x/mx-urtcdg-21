@@ -40,3 +40,19 @@ fn func1() {
     println!("{}", "---Printing w/o formatter ---".on_blue());
     println!("{}", file.blue());
 }
+
+// Same as above functions using match statement
+fn func2() {
+    header("Using match statement");
+
+    match fs::read_to_string("src/s7/s7logs.txt") {
+        Ok(file) => {
+            println!("{}", "---Printing With formatter---".on_blue());
+            println!("{:#?}", file.yellow());
+        }
+        Err(e) => {
+            println!("{}", "Error: ".red());
+            println!("{}", e.to_string().red());
+        }
+    }
+}
