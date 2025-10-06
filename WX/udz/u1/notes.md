@@ -8,5 +8,7 @@
 # Regarding `Stack` and `Heap`
 
 1. Stack - Small amount of data very fast
+   1. Usually stores the metadata
 2. Heap - Large amount of data slower up to gigs
+   1. Stores the actual data since it doesnt run out of memeory like in the stack
 3. Data - Literal values that used in the function
