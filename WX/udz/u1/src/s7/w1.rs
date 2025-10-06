@@ -17,7 +17,8 @@ use yansi::Paint;
 
 pub fn s7_w1_main() {
     greet();
-    func1();
+    // func1();
+    func2();
 }
 
 // --- Sub Functions ---
@@ -48,7 +49,7 @@ fn func2() {
     match fs::read_to_string("src/s7/s7logs.txt") {
         Ok(file) => {
             println!("{}", "---Printing With formatter---".on_blue());
-            println!("{:#?}", file.yellow());
+            println!("{:#?}", file.len().yellow());
         }
         Err(e) => {
             println!("{}", "Error: ".red());
