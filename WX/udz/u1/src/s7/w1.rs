@@ -19,7 +19,8 @@ pub fn s7_w1_main() {
     greet();
     // func1();
     // func2();
-    func3();
+    // func3();
+    func4();
 }
 
 // --- Sub Functions ---
@@ -89,7 +90,7 @@ For extracting error part , will again copy the function
 */
 
 fn func4() {
-    header("Using match statement");
+    header("Extracting Errors");
 
     // string_test(String::from("Panty"), &String::from("Panty"), "Panty");
 
