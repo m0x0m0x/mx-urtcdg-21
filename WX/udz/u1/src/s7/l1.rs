@@ -17,7 +17,8 @@ use yansi::Paint;
 pub fn s7_l1_main() {
     greet();
     // div1();
-    div2();
+    // div2();
+    validate_email_function("jana@hah.com".to_string());
 }
 
 // --- Sub Functions ---
@@ -56,5 +57,40 @@ fn div1() {
 
 fn div2() {
     header("Div 2 ");
-    divide(12.0, 3.0);
+
+    match divide(12.0, 100.0) {
+        Ok(result_of_division) => {
+            println!("{}", "12/3 is ".blue());
+            println!("{}", result_of_division.to_string().blue());
+        }
+        Err(what_went_wrong) => {
+            println!("{}", "Error: ".red());
+            println!("{}", what_went_wrong.to_string().red());
+        }
+    }
+}
+
+/// Validate enums  - simple validation check
+
+fn validate_email(email: String) -> Result<(), Error> {
+    if email.contains('@') {
+        Ok(())
+    } else {
+        Err(Error::other("Email must have @ bastard"))
+    }
+}
+
+// Function using above with match
+fn validate_email_function(email: String) {
+    header("Validate Email");
+    // let email = String::from("hello@world.com");
+    match validate_email(email) {
+        Ok(..) => {
+            println!("{}", "Email is valid".green());
+        }
+        Err(e) => {
+            println!("{}", "Email is invalid".red());
+            println!("{}", e.to_string().red());
+        }
+    }
 }
