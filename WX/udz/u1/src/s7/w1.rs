@@ -18,7 +18,8 @@ use yansi::Paint;
 pub fn s7_w1_main() {
     greet();
     // func1();
-    func2();
+    // func2();
+    func3();
 }
 
 // --- Sub Functions ---
@@ -45,6 +46,29 @@ fn func1() {
 // Same as above functions using match statement
 fn func2() {
     header("Using match statement");
+
+    match fs::read_to_string("src/s7/s7logs.txt") {
+        Ok(file) => {
+            println!("{}", "---Printing With formatter Characters---".on_blue());
+            println!("{:#?}", file.len().yellow());
+            println!("{}", "---Printing Full File---".on_blue());
+            println!("{:#?}", file.yellow());
+        }
+        Err(e) => {
+            println!("{}", "Error: ".red());
+            println!("{}", e.to_string().red());
+        }
+    }
+}
+
+// test function for strings
+
+fn string_test(a: String, b: &String, c: &str) {}
+
+fn func3() {
+    header("Using match statement");
+
+    string_test(String::from("Panty"), &String::from("Panty"), "Panty");
 
     match fs::read_to_string("src/s7/s7logs.txt") {
         Ok(file) => {
