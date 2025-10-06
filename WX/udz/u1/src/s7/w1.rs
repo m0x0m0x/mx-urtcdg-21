@@ -48,8 +48,10 @@ fn func2() {
 
     match fs::read_to_string("src/s7/s7logs.txt") {
         Ok(file) => {
-            println!("{}", "---Printing With formatter---".on_blue());
+            println!("{}", "---Printing With formatter Characters---".on_blue());
             println!("{:#?}", file.len().yellow());
+            println!("{}", "---Printing Full File---".on_blue());
+            println!("{:#?}", file.yellow());
         }
         Err(e) => {
             println!("{}", "Error: ".red());
