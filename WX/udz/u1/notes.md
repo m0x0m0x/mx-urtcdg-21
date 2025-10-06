@@ -15,3 +15,5 @@
 3. Data - Literal values that used in the function
 
 # Regarding [`String`, `&str`, `&string`]
+
+1.
