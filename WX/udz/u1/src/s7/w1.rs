@@ -63,12 +63,12 @@ fn func2() {
 
 // test function for strings
 
-fn string_test(a: String, b: &String, c: &str) {}
+// fn string_test(a: String, b: &String, c: &str) {}
 
 fn func3() {
     header("Using match statement");
 
-    string_test(String::from("Panty"), &String::from("Panty"), "Panty");
+    // string_test(String::from("Panty"), &String::from("Panty"), "Panty");
 
     match fs::read_to_string("src/s7/s7logs.txt") {
         Ok(file) => {
