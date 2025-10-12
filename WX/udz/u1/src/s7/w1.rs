@@ -9,6 +9,7 @@ Section 7 - Section 7 work here
 
 // --- Imports ---
 use crate::utils::{header, pswg};
+use core::error;
 use rand::{rng, seq::SliceRandom};
 use std::fs;
 use yansi::Paint;
@@ -19,8 +20,9 @@ pub fn s7_w1_main() {
     greet();
     // func1();
     // func2();
-    // func3();
-    func4();
+    func3();
+    // func4();
+    // func4_extract_error();
 }
 
 // --- Sub Functions ---
@@ -68,20 +70,20 @@ fn func2() {
 fn func3() {
     header("Using match statement");
 
-    // string_test(String::from("Panty"), &String::from("Panty"), "Panty");
+    let mut error_logs = vec![];
 
     match fs::read_to_string("src/s7/s7logs.txt") {
         Ok(file) => {
-            println!("{}", "---Printing With formatter Characters---".on_blue());
-            println!("{:#?}", file.len().yellow());
-            println!("{}", "---Printing Full File---".on_blue());
-            println!("{:#?}", file.yellow());
+            error_logs = func4_extract_error(file.as_str());
         }
         Err(e) => {
             println!("{}", "Error: ".red());
             println!("{}", e.to_string().red());
         }
     }
+
+    println!("{:#?}", error_logs);
+    println!("No of lines: {:#?}", error_logs.len().yellow());
 }
 
 /*
@@ -106,4 +108,22 @@ fn func4() {
             println!("{}", e.to_string().red());
         }
     }
+}
+
+// Extrction function
+
+fn func4_extract_error(text: &str) -> Vec<&str> {
+    // header("Text Extraction");
+
+    let split_text = text.split("\n");
+
+    let mut results = vec![];
+
+    for line in split_text {
+        if line.to_lowercase().starts_with("error") {
+            results.push(line);
+        }
+    }
+
+    results
 }
