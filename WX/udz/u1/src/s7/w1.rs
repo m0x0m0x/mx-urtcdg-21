@@ -75,7 +75,7 @@ fn func3() {
     match fs::read_to_string("src/s7/s7logs.txt") {
         Ok(file) => {
             error_logs = func4_extract_error(file.as_str());
-        }
+        } // file will be dropped here that why error
         Err(e) => {
             println!("{}", "Error: ".red());
             println!("{}", e.to_string().red());
@@ -112,7 +112,7 @@ fn func4() {
 
 // Extrction function
 
-fn func4_extract_error(text: &str) -> Vec<&str> {
+fn func4_extract_error(text: &str) -> Vec<String> {
     // header("Text Extraction");
 
     let split_text = text.split("\n");
@@ -121,7 +121,7 @@ fn func4_extract_error(text: &str) -> Vec<&str> {
 
     for line in split_text {
         if line.to_lowercase().starts_with("error") {
-            results.push(line);
+            results.push(line.to_string());
         }
     }
 
