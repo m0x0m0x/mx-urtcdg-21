@@ -24,7 +24,8 @@ pub fn s7_w1_main() {
     // func4();
     // func4_extract_error();
     // func5();
-    func6();
+    // func6();
+    func7();
 }
 
 // --- Sub Functions ---
@@ -163,6 +164,18 @@ fn func5() {
 // Altarntive to Match Statemnts
 
 fn func6() {
+    header("Using match statement - Fucntion 6");
+
+    let text = fs::read_to_string("src/s7/s7logs.txt").expect("[!] Fucked");
+
+    let error_logs = func4_extract_error(text.as_str());
+
+    // Write directly to file
+    fs::write("src/s7/s7errorlogs.txt", error_logs.join("\n")).expect("[!] Fucked Not Written");
+}
+
+// Yest another alternative using unwrap_or_else
+fn func7() {
     header("Using match statement - Fucntion 6");
 
     let text = fs::read_to_string("src/s7/s7logs.txt").expect("[!] Fucked");
