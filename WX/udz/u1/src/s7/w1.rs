@@ -148,7 +148,7 @@ fn func5() {
                 Ok(..) => println!("{}", "[+] File written successfully".green()),
                 Err(e) => {
                     eprintln!("{}", "Error: ".red());
-                    println!("{}", e.to_string().red());
+                    eprintln!("{}", e.to_string().red());
                 }
             }
         }
