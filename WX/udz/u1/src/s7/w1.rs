@@ -169,5 +169,6 @@ fn func6() {
 
     let error_logs = func4_extract_error(text.as_str());
 
+    // Write directly to file
     fs::write("src/s7/s7errorlogs.txt", error_logs.join("\n")).expect("Fucked Not Written");
 }
