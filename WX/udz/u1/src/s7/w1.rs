@@ -20,9 +20,10 @@ pub fn s7_w1_main() {
     greet();
     // func1();
     // func2();
-    func3();
+    // func3();
     // func4();
     // func4_extract_error();
+    func5();
 }
 
 // --- Sub Functions ---
@@ -126,4 +127,34 @@ fn func4_extract_error(text: &str) -> Vec<String> {
     }
 
     results
+}
+
+// Conituation from Lesson 70
+
+fn func5() {
+    header("Using match statement - Fucntion 5");
+
+    match fs::read_to_string("src/s7/s7logs.txt") {
+        Ok(file) => {
+            let error_logs = func4_extract_error(file.as_str());
+            let error_logs_content = error_logs.join("\n");
+
+            // Display contents before writing
+            println!("{}", "[=] Contents to be written:".blue());
+            println!("{}", error_logs_content);
+
+            // Writing to  file
+            match fs::write("src/s7/s7errorlogs.txt", error_logs.join("\n")) {
+                Ok(..) => println!("{}", "[+] File written successfully".green()),
+                Err(e) => {
+                    eprintln!("{}", "Error: ".red());
+                    println!("{}", e.to_string().red());
+                }
+            }
+        }
+        Err(e) => {
+            println!("{}", "Error: ".red());
+            println!("{}", e.to_string().red());
+        }
+    }
 }
