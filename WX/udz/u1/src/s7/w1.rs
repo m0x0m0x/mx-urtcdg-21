@@ -158,3 +158,33 @@ fn func5() {
         }
     }
 }
+
+// Altarntive to Match Statemnts
+
+fn func6() {
+    header("Using match statement - Fucntion 5");
+
+    match fs::read_to_string("src/s7/s7logs.txt") {
+        Ok(file) => {
+            let error_logs = func4_extract_error(file.as_str());
+            let error_logs_content = error_logs.join("\n");
+
+            // Display contents before writing
+            println!("{}", "[=] Contents to be written:".blue());
+            println!("{}", error_logs_content);
+
+            // Writing to  file
+            match fs::write("src/s7/s7errorlogs.txt", error_logs.join("\n")) {
+                Ok(..) => println!("{}", "[+] File written successfully".green()),
+                Err(e) => {
+                    eprintln!("{}", "Error: ".red());
+                    eprintln!("{}", e.to_string().red());
+                }
+            }
+        }
+        Err(e) => {
+            println!("{}", "Error: ".red());
+            println!("{}", e.to_string().red());
+        }
+    }
+}
