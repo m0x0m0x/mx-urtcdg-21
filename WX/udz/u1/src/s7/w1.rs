@@ -168,5 +168,6 @@ fn func6() {
     let text = fs::read_to_string("src/s7/s7logs.txt").expect("Fucked");
 
     let error_logs = func4_extract_error(text.as_str());
-    fs::write("src/s7/s7errorlogs.txt", error_logs.join("\n")).expect("Fucked write");
+
+    fs::write("src/s7/s7errorlogs.txt", error_logs.join("\n")).expect("Fucked Not Written");
 }
