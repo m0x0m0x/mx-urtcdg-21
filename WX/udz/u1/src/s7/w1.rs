@@ -165,7 +165,7 @@ fn func5() {
 fn func6() {
     header("Using match statement - Fucntion 6");
 
-    let text = fs::read_to_string("sr/s7/s7logs.txt").expect("[!] Fucked");
+    let text = fs::read_to_string("src/s7/s7logs.txt").expect("[!] Fucked");
 
     let error_logs = func4_extract_error(text.as_str());
 
