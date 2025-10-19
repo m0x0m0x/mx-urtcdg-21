@@ -12,6 +12,7 @@ use crate::utils::{header, pswg};
 use core::error;
 use rand::{rng, seq::SliceRandom};
 use std::fs;
+use std::io::Error;
 use yansi::Paint;
 
 // --- Main Function ---
@@ -175,13 +176,15 @@ fn func6() {
 }
 
 // Yest another alternative using unwrap_or_else
-fn func7() {
-    header("Using match statement - Fucntion 6");
+fn func7() -> Result<(), Error> {
+    // header("Using match statement - Fucntion 6");
 
-    let text = fs::read_to_string("src/s7/s7logs.txt").expect("[!] Fucked");
+    // let text = fs::read_to_string("src/s7/s7logs.txt").expect("[!] Fucked");
 
-    let error_logs = func4_extract_error(text.as_str());
+    // let error_logs = func4_extract_error(text.as_str());
 
-    // Write directly to file
-    fs::write("src/s7/s7errorlogs.txt", error_logs.join("\n")).expect("[!] Fucked Not Written");
+    // // Write directly to file
+    // fs::write("src/s7/s7errorlogs.txt", error_logs.join("\n")).expect("[!] Fucked Not Written");
+
+    Err(Error::other("smelling..panty.."))
 }
